@@ -1,0 +1,23 @@
+
+body {
+    color: #97c024;
+    text-align: center;
+
+}
+p {
+    color: black;
+}
+img.shot {
+    padding: 10px;
+    border: 1px solid #777;
+    background: #eee;
+}
+
+div#main {
+    max-width: 600px;
+    margin: 50px auto;
+}
+p.name {
+    color: #aaa;
+}
+

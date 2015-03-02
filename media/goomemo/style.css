@@ -1,0 +1,147 @@
+* { margin: 0; padding: 0; }
+
+body {
+    background: #fff;
+    font-family: verdana, helvetica;
+    color: #000;
+}
+p {
+    margin: 10px 0;
+}
+a {
+}
+div#header {
+    width: 100%;
+    border-bottom: 4px solid #aaa;
+    background: #eee;
+    padding-top: 30px;
+    color: #888;
+    font-size: 80%;
+}
+div#header h1 {
+    display: none;
+}
+div#header p.r {
+/*    position: absolute;*/
+/*    top: 0; right: 20px;*/
+    margin-top: -80px;
+    margin-right: 10px;
+}
+
+div.inner {
+    position: relative;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 0 10px;
+}
+body.big div.inner {
+    width: 880px;
+}
+
+div#footer {
+    width: 100%;
+    border-top: 4px solid #aaa;
+    background: #eee;
+    padding-top: 10px;
+    font-size: 80%;
+    color: #888;
+    padding-bottom: 100px;
+}
+div#footer div.inner {
+    text-align: center;
+}
+
+.l {
+    float: left;
+    padding-right: 15px;
+    clear: left;
+}
+.r {
+    float: right;
+    padding-left: 15px;
+    clear: right;
+}
+
+
+h2 {
+    margin: 0px 0 10px 0;
+    background: #eee;
+    padding: 5px;
+    border-bottom: 4px solid #777;
+    color: #777;
+    padding-left: 50px;
+    background: #bbb url(fade.png) repeat-y left top;
+}
+h2.no {
+    padding-left: 5px;
+    background: #eee;
+}
+
+h1.pro {
+    display: block;
+    margin-top: 20px;
+    color: #0069AA;
+}
+div.clear {
+    clear: both;
+}
+div.half {
+    width: 47%;
+    margin-right: 10px;
+    float: left;
+}
+
+div.feat {
+    margin: 10px 10px 0 0;
+    position: relative;
+    float: left;
+}
+body.big div.feat {
+    width: 430px;
+}
+
+div.star {
+    position: absolute;
+    top: -10px; left: -15px;
+    width: 64px; height: 66px;
+    background: url(star.png) no-repeat left top;
+}
+div.feat img {
+    border: 1px dotted #aaa;
+    padding: 6px;
+    background: #eee;
+/*    margin: 10px;*/
+    margin-right: 10px;
+}
+div.feat p {
+    font-weight: bold;
+    font-size: 110%;
+    color: #777;
+}
+
+h2 span {
+    color: #aaa;
+}
+
+ul {
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+
+li span {
+    font-weight: bold;
+    color: #777;
+}
+
+div.mobonly {
+    display: none;
+}
+
+div.note {
+    margin: 10px;
+    padding: 10px;
+    background: #ffc;
+    border: 1px dotted #aaa;
+    font-size: 85%;
+}
+

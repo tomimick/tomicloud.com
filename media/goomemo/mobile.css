@@ -1,0 +1,61 @@
+
+/* CSS for mobile phones */
+
+/* firefox debug
+body.mob {
+    width: 320px;
+    margin: 0 auto;
+}*/
+
+body.mob {
+}
+
+body.mob div#header {
+    padding-top: 2px;
+}
+body.mob div.inner {
+    width: auto;
+}
+
+body.mob img {
+    width: auto;
+}
+body.mob div#main img {
+    width: 45%;
+}
+body.mob div.half {
+    width: auto;
+    float: none;
+    margin: 0;
+}
+body.mob div#header p.r {
+    float: none;
+    margin: 0;
+    padding: 0;
+}
+body.mob div.feat {
+    width: auto;
+    float: none;
+    margin: 0;
+    border: 1px dotted #aaa;
+    margin-top: 10px;
+    overflow: hidden;
+}
+body.mob div.feat p {
+    font-size: 95%;
+}
+body.mob .l {
+/*    float: none;*/
+}
+
+body.mob div.mobonly {
+    display: block;
+}
+
+body.mob h2.no {
+    font-size: 110%;
+}
+body.mob ul {
+    margin-left: 20px;
+}
+
