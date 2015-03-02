@@ -1,0 +1,545 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My favorite Javascript + jQuery boilerplates - Tomi's Blog</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+    <meta name="description" content="Home of Tomi Mickelsson and blog about tech"/>
+
+
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes" name="viewport" />
+
+
+    <link rel="shortcut icon" href="/static/favicon.ico" />
+
+    <link rel="apple-touch-icon" type="image/png" href="/static/applehome-tomi.png" />
+
+
+    <link rel="stylesheet" href="/static/main.css" type="text/css" />
+    <link rel="stylesheet" href="/static/pastie.css" type="text/css" />
+
+    <link rel="stylesheet" href="/static/mobile.css" type="text/css" />
+
+    <link rel="stylesheet" href="/static/full.css" type="text/css" />
+
+
+
+<!--[if lte IE 8]>
+    <link rel="stylesheet" type="text/css" href="/static/ie.css"/>
+<![endif]-->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30210642-1']);
+  _gaq.push(['_setDomainName', 'tomicloud.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+    </head>
+    <body>
+
+    <div id="header">
+        
+
+
+        <a id="logo" title="Home" href="/">&nbsp;</a>
+        <p>Tomi's blog about tech</p>
+
+
+        <div class="nav">
+            <a href="/" class="icon " >
+                <span id="icohome">&nbsp;</span>Blog</a>
+            <a href="/work" class="icon ">
+                <span id="icowork">&nbsp;</span>Work</a>
+            <a href="/about" class="icon ">
+                <span id="icoabout">&nbsp;</span>About</a>
+        </div>
+    </div>
+
+    <div id="sidebar">
+        <div>
+
+            <p class="mypic">
+
+
+            <img src="/static/tomimickelsson.png" title="Tomi Mickelsson" />
+            </p>
+
+            <p class="colorize">
+            Tomi is a software engineer working as a freelance consultant in
+            <span>HTML5</span> and <span>mobile</span> projects.
+
+
+
+
+
+            </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><a class="icon" href="http://twitter.com/tomimickelsson">
+    <span id="icotwitter">&nbsp;</span> twitter</a></p>
+<p><a class="icon" href="mailto:tomi.mickelsson@iki.fi">
+    <span id="icoenve">&nbsp;</span> tomi.mickelsson@iki.fi</a></p>
+
+
+
+
+
+            <h3>Blog Posts</h3>
+            
+            <p class="plink"><a class=""
+         href="/2014/01/responsive-gallery" >Responsive HTML5 image gallery tutorial</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2013/11/mapcolorizer" >Mapcolorizer.js: Choropleth maps with Leaflet</a></p>
+            
+            <p class="plink"><a class="sel"
+        >My favorite Javascript + jQuery boilerplates</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/11/screenshot-fetcher" >Android &amp; iOS screenshot fetcher</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/07/viewsrc-chrome-ext" >Quick source viewer - Chrome extension</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/04/save-css-chrome-ext" >Save CSS - Chrome extension makes you fly</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/03/multi-touch-demo" >Multi-touch events playground</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/02/django-sqlite" >Django, SQLite and writes</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/02/tech-stack" >Tech stack of my blog</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/02/hello-world" >Hello World!</a></p>
+            
+
+
+
+
+
+        </div>
+
+        
+
+
+       
+
+    </div>
+
+    <div id="page">
+        
+
+
+
+
+
+
+<div class="post">
+    <h1>My favorite Javascript + jQuery boilerplates</h1>
+
+    
+
+    <div class="date">Jan 13, 2013
+    </div>
+
+    
+
+    <p><img src="/static/puzzle.png" class="title" /></p>
+<p>Javascript can be a difficult language to grasp. It lacks common concepts like
+modules and classes that are present in many other languages. New developers
+starting with Javascript find it hard to organize code in a proper way.  There
+are simply too many ways to code tasks in Javascript, and every framework
+seems to define their own ways.  It is unfortunate that the language does not
+provide native constructs for basic engineering tasks. Fortunately there are
+patterns available and frameworks have matured a lot since the early days.</p>
+<p>Since it seems common for every other web developer to publish his own
+boilerplates, I'm following the crowd too ;) In this blog post I share two
+boilerplates that I have been using myself in developing web apps. The first
+is a simple module pattern that groups a number of functions into the same
+namespace and provides data encapsulation.  The second is a pattern to build
+jQuery plugins.  There is nothing really major here that hasn't already seen
+the light elsewhere; these are just my favorite ways to organize code in
+Javascript.</p>
+<h2>My Javascript module boilerplate</h2>
+<p>Most likely you knew this already: One of the <a href="http://oreilly.com/javascript/excerpts/javascript-good-parts/awful-parts.html">worst
+parts</a>
+of Javascript is the reliance on a single global namespace.  Every function of
+a script is imported to the global namespace (bound to the "window" object).
+If you have a lot of scripts, you can end up with name collisions with all
+kinds of hard to debug surprises. Scripts can't have functions with the same
+name. This is bad. Every module should really exist in a private namespace.
+Data encapsulation and privacy are the first lessons learned at school, right?</p>
+<p>While Javascript does not have a language level construct for constructing
+modules, it does provide a way to group functions and data in a private
+namespace.  By using <code>Javascript's most powerful feature</code>,
+<a href="http://jibbering.com/faq/notes/closures/">closures</a> , it is possible to
+create an anonymous function, invoke it immediately and create a closure of
+functions and data. At first the construct looks awkward but it does the job.
+This pattern is called the <a href="http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth">module
+pattern</a>.</p>
+<p>There are actually many variances of module patterns in the net. My preferred
+version is the <a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/#revealingmodulepatternjavascript">The Revealing Module Pattern</a>.
+It is simple and easy for the eyes:</p>
+<div class="codehilite"><pre><span class="c1">// mymodule.js - a naive example module with 2 public functions,</span>
+<span class="c1">// 1 private function and 1 private variable</span>
+<span class="kd">var</span> <span class="nx">MYMODULE</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+
+    <span class="c1">// variables and functions private unless attached to API below</span>
+    <span class="c1">// &#39;this&#39; refers to global window</span>
+
+    <span class="c1">// private array</span>
+    <span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="c1">// add a number into array</span>
+    <span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">log</span><span class="p">(</span><span class="s2">&quot;add &quot;</span><span class="o">+</span><span class="nx">a</span><span class="p">);</span>
+        <span class="nx">array</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// return copy of the array</span>
+    <span class="kd">function</span> <span class="nx">get_array</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">log</span><span class="p">(</span><span class="s2">&quot;copy_array&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">array</span><span class="p">.</span><span class="nx">slice</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// a private debug function</span>
+    <span class="kd">function</span> <span class="nx">log</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">debug</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// define the public API</span>
+    <span class="kd">var</span> <span class="nx">API</span> <span class="o">=</span> <span class="p">{};</span>
+    <span class="nx">API</span><span class="p">.</span><span class="nx">add</span> <span class="o">=</span> <span class="nx">add</span><span class="p">;</span>
+    <span class="nx">API</span><span class="p">.</span><span class="nx">get_array</span> <span class="o">=</span> <span class="nx">get_array</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="nx">API</span><span class="p">;</span>
+<span class="p">}());</span>
+</pre></div>
+
+
+<p>The above module is used like this:</p>
+<div class="codehilite"><pre><span class="nx">MYMODULE</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="nx">MYMODULE</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">MYMODULE</span><span class="p">.</span><span class="nx">get_array</span><span class="p">();</span>
+</pre></div>
+
+
+<p>The boilerplate has the following treats:</p>
+<ul>
+<li>The obvious goal: creates a private module encapsulating data and functions;
+  does not pollute global namespace.</li>
+<li>Has simple coding style: both private and public functions are defined and
+  used in a similar way. Indentation does not get too deep.</li>
+<li>Public API defined at the bottom; nicely documents the module API in one
+  location.</li>
+<li>Module name is in all capitals indicating that it's a module and not a
+  construction function or an object.</li>
+</ul>
+<p>The added benefit of using the module pattern comes with <code>minification:</code> the
+private function and variable names of the module get obfuscated during
+minification process.</p>
+<p>Note that this pattern creates a single global module; this is not an OOP
+pattern for creating objects. OOP in Javascript is a controversial topic with
+too many opinions :) A quick simplified intro: To create an object, the module
+pattern can be slightly modified to behave as a construction function, and the
+function is then invoked together with the <a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Operators/new">new
+keyword</a>.
+I'm using this pattern to create an object in the below jQuery boilerplate.</p>
+<h2>My jQuery plugin boilerplate</h2>
+<p>I remember the first time I wanted to create a jQuery plugin. The ride was not
+all smooth and fast; it took a while to figure out which one of the many
+jquery tutorials to learn. The <a href="http://docs.jquery.com/Plugins/Authoring">official plugin
+documentation</a> left questions
+unanswered: how to maintain plugin state, how to take care of event callbacks
+and how to provide an API for the plugin?</p>
+<p>After reading a few blogs and lots of source code, I eventually found
+practices in creating a decent jQuery plugin. The boilerplate below is a
+typical construction: it creates a Javascript object containing the plugin
+logic, API and state, and then ties the object to each DOM element in the
+jQuery selector. The object is cached in the element's <code>.data()</code> where it can
+be accessed after creation. The object defines its API similarly as in my
+module pattern above.</p>
+<div class="codehilite"><pre><span class="p">;(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// wrap code within anonymous function: a private namespace</span>
+
+    <span class="c1">// replace &#39;MyPlugin&#39; and &#39;myplugin&#39; below in your own plugin...</span>
+
+    <span class="c1">// constructor function for the logical object bound to a</span>
+    <span class="c1">// single DOM element</span>
+    <span class="kd">function</span> <span class="nx">MyPlugin</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="c1">// remember this object as self</span>
+        <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+        <span class="c1">// remember the DOM element that this object is bound to</span>
+        <span class="nx">self</span><span class="p">.</span><span class="nx">$elem</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">elem</span><span class="p">);</span>
+
+        <span class="c1">// default options</span>
+        <span class="kd">var</span> <span class="nx">defaults</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="nx">msg</span><span class="o">:</span> <span class="s2">&quot;You clicked me!&quot;</span>
+        <span class="p">};</span>
+        <span class="c1">// mix in the passed-in options with the default options</span>
+        <span class="nx">self</span><span class="p">.</span><span class="nx">options</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">extend</span><span class="p">({},</span> <span class="nx">defaults</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+
+        <span class="c1">// just some private data</span>
+        <span class="nx">self</span><span class="p">.</span><span class="nx">count</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+        <span class="nx">init</span><span class="p">();</span>
+
+        <span class="c1">// initialize this plugin</span>
+        <span class="kd">function</span> <span class="nx">init</span><span class="p">()</span> <span class="p">{</span>
+
+            <span class="c1">// set click handler</span>
+            <span class="nx">self</span><span class="p">.</span><span class="nx">$elem</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="nx">click_handler</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// private click handler</span>
+        <span class="kd">function</span> <span class="nx">click_handler</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">alert</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">msg</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="nx">self</span><span class="p">.</span><span class="nx">count</span><span class="p">);</span>
+            <span class="nx">self</span><span class="p">.</span><span class="nx">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// public method to change msg</span>
+        <span class="kd">function</span> <span class="nx">change_msg</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">self</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">msg</span> <span class="o">=</span> <span class="nx">msg</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// define the public API</span>
+        <span class="kd">var</span> <span class="nx">API</span> <span class="o">=</span> <span class="p">{};</span>
+        <span class="nx">API</span><span class="p">.</span><span class="nx">change_msg</span> <span class="o">=</span> <span class="nx">change_msg</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nx">API</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// attach the plugin to jquery namespace</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">myplugin</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="c1">// prevent multiple instantiation</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;myplugin&#39;</span><span class="p">))</span>
+                <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;myplugin&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">MyPlugin</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">options</span><span class="p">));</span>
+        <span class="p">});</span>
+    <span class="p">};</span>
+<span class="p">})(</span><span class="nx">jQuery</span><span class="p">);</span>
+</pre></div>
+
+
+<p>The plugin is used like this:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span><span class="nx">msg</span> <span class="o">:</span> <span class="s2">&quot;Click!&quot;</span><span class="p">};</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#elem&#39;</span><span class="p">).</span><span class="nx">myplugin</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+
+<span class="c1">// get the API to the plugin object</span>
+<span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#elem&#39;</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;myplugin&#39;</span><span class="p">);</span>
+<span class="nx">api</span><span class="p">.</span><span class="nx">change_msg</span><span class="p">(</span><span class="s2">&quot;Hello there!&quot;</span><span class="p">);</span>
+</pre></div>
+
+
+<p>If you feel brave and want to read more about different jQuery plugins, go
+ahead and read Addy Osmani's exhaustive list of <a href="http://coding.smashingmagazine.com/2011/10/11/essential-jquery-plugin-patterns/">Essential jQuery
+patterns</a>.</p>
+<h2>Loading modules dynamically with HeadJS</h2>
+<p>If you have a small web app with less Javascript, you can concatenate and
+minimize all the modules in the production setup into a single script to be
+loaded once during initial page load. Most likely there would be no noticeable
+advantage in loading small Javascript modules on demand. (Each HTTP request
+has latency anyway.) You internally organize modules into separate files
+but externally serve a single file.</p>
+<p>However, in a large web application with several thousand lines of Javascript,
+it may become useful to load modules on demand as they are being used. With
+on demand loading the app loads faster, initially consumes less resources and
+generally feels quicker.  Speed is essential in great user experiences.</p>
+<p><a href="http://requirejs.org/">RequireJS</a> may be the most comprehensive solution for
+dynamic loading of resources in Javascript and declaring dependencies between
+modules. Here I'm introducing another solution that I like for its simplicity.</p>
+<p><a href="http://headjs.com/">HeadJS</a> is a small Javascript library packed with
+combination of features for dynamic loading of scripts and CSS, browser
+feature detection and support for responsive design. If you only care about
+the dynamic loading, the size is only 1.9K (minified and gzipped).</p>
+<p>Below is a simplified example of HeadJS in action. In the document, only the
+HeadJS script is declared as a regular script.  Once loaded, HeadJS fetches
+jquery and mymod1.js asynchronously.  head.ready() will get fired once the
+2 modules are loaded and document DOM is ready.</p>
+<p>Later in the app, when the user invokes a feature that is implemented in
+mymod2.js, the app dynamically loads mymod2.js and mymod2.css if they are
+not already loaded and then continues to invoke the init() function in the
+mymod2.js.</p>
+<div class="codehilite"><pre><span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>testing headjs<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;head.load.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+    ...
+    <span class="nt">&lt;/body&gt;</span>
+
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+    <span class="nx">head</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// called when jquery + mymod1.js loaded and doc ready</span>
+
+        <span class="c1">// init mymod1.js</span>
+        <span class="nx">MYMOD1</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+    <span class="p">});</span>
+    <span class="nx">head</span><span class="p">.</span><span class="nx">js</span><span class="p">(</span><span class="s2">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mymod1.js&quot;</span><span class="p">);</span>
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+</pre></div>
+
+
+<div id="kludge"></div>
+
+<div class="codehilite"><pre><span class="c1">// somewhere in mymod1.js:</span>
+<span class="c1">// another module required, load mymod2.js and it&#39;s css file</span>
+<span class="nx">head</span><span class="p">.</span><span class="nx">js</span><span class="p">(</span><span class="s2">&quot;mymod2.js&quot;</span><span class="p">,</span> <span class="s2">&quot;mymod2.css&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">MYMOD2</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<h2>Demo</h2>
+<p><img src="/static/demo-view-src.png" class="r shadow" /></p>
+<p>I put together a small demo that demonstrates the boilerplates and dynamic
+loading introduced above. Initially the demo loads jquery and main.js modules,
+and on demand loads module2.js, module2.css and jquery-plugin.js.</p>
+<p>See <a href="/media/boilerplate-demo/demo.html">demo online</a> or <a href="/media/boilerplate-demo.zip">download demo</a>.</p>
+<p>To observe dynamic loading with Chrome, you could install my Chrome extension
+<a href="https://chrome.google.com/webstore/detail/quick-source-viewer/cfmcghennfbpmhemnnfjhkdmnbidpanb?hl=fi">Quick source viewer</a> (screenshot on right). It shows page sources with syntax colorization and
+beautification, and has other features. In the extension, dynamically loaded
+scripts are labeled as "INJECTED".</p>
+<p>Thanks for reading.</p>
+
+    <p class="author">&mdash; Tomi Mickelsson</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'tomicloud'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <div id="footer">
+
+
+
+    <p>
+    <a class="icon" href="http://twitter.com/tomimickelsson"><span id="icotwitter">&nbsp;</span> twitter</a> |
+    <a class="icon" href="mailto:tomi.mickelsson@iki.fi"><span id="icoenve">&nbsp;</span> tomi.mickelsson@iki.fi</a>
+
+    </p>
+
+    <p>&copy; 2015 Tomi Mickelsson</p>
+
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+}
+
+    
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    
+    <script src="/static/main.js"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        MAIN.main();
+    });
+</script>
+
+
+
+
+
+
+
+
+
+</html>
+

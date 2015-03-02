@@ -1,0 +1,49 @@
+
+html {
+    background: #ddd;
+}
+
+body {
+    padding: 10px;
+    margin: 20px auto;
+    width: 80%;
+    border: 1px solid #555;
+    background: #fff;
+    font-family: sans-serif;
+}
+
+body > div {
+    border: 1px solid #555;
+    padding: 10px;
+    margin: 5px 0;
+    background: #eee;
+}
+
+#debug {
+    float: right;
+    width: 30%;
+    margin-top: -50px;
+    background: #ffa;
+}
+
+p {
+    margin: 0;
+}
+b {
+    display: block;
+}
+div a {
+    padding: 3px 10px;
+    margin-right: 20px;
+    background: #55f;
+    color: #fff;
+    text-decoration: none;
+}
+div a:hover {
+    background: #00a;
+}
+
+#box1 {
+    background: #bbf;
+}
+

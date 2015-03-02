@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /mode
+Disallow: /facebooklogin
+Disallow: /login

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tomi's boilerplate demo</title>
+
+        <script src="head.load.min.js"></script>
+        <link rel="stylesheet" href="main.css" type="text/css" />
+    </head>
+    <body>
+    <h1>Tomi's JS boilerplate demo</h1>
+
+        <div id="debug">
+            <b>Debug:</b>
+        </div>
+
+        <div id="box1">
+            <b>main.js module</b>
+            <a href="#" id="a1">Add num to array</a>
+        </div>
+
+        <div id="box2">
+            <b>module2.js module</b>
+            <a href="#" id="load2">Load module2.js + module2.css + jquery-plugin.js</a>
+        </div>
+
+        <a href="http://tomicloud.com/2013/01/js-jquery-boilerplates">Back to tomicloud.com</a>
+    </body>
+
+    <script type="text/javascript">
+    head.ready(function() {
+        // called when jquery + main.js loaded and doc ready
+        MAIN.init();
+    });
+    head.js("http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js",
+        "main.js");
+    </script>
+</html>
+

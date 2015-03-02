@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mapcolorizer.js: Choropleth maps with Leaflet - Tomi's Blog</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+    <meta name="description" content="Home of Tomi Mickelsson and blog about tech"/>
+
+
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes" name="viewport" />
+
+
+    <link rel="shortcut icon" href="/static/favicon.ico" />
+
+    <link rel="apple-touch-icon" type="image/png" href="/static/applehome-tomi.png" />
+
+
+    <link rel="stylesheet" href="/static/main.css" type="text/css" />
+    <link rel="stylesheet" href="/static/pastie.css" type="text/css" />
+
+    <link rel="stylesheet" href="/static/mobile.css" type="text/css" />
+
+    <link rel="stylesheet" href="/static/full.css" type="text/css" />
+
+
+
+<!--[if lte IE 8]>
+    <link rel="stylesheet" type="text/css" href="/static/ie.css"/>
+<![endif]-->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30210642-1']);
+  _gaq.push(['_setDomainName', 'tomicloud.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+    </head>
+    <body>
+
+    <div id="header">
+        
+
+
+        <a id="logo" title="Home" href="/">&nbsp;</a>
+        <p>Tomi's blog about tech</p>
+
+
+        <div class="nav">
+            <a href="/" class="icon " >
+                <span id="icohome">&nbsp;</span>Blog</a>
+            <a href="/work" class="icon ">
+                <span id="icowork">&nbsp;</span>Work</a>
+            <a href="/about" class="icon ">
+                <span id="icoabout">&nbsp;</span>About</a>
+        </div>
+    </div>
+
+    <div id="sidebar">
+        <div>
+
+            <p class="mypic">
+
+
+            <img src="/static/tomimickelsson.png" title="Tomi Mickelsson" />
+            </p>
+
+            <p class="colorize">
+            Tomi is a software engineer working as a freelance consultant in
+            <span>HTML5</span> and <span>mobile</span> projects.
+
+
+
+
+
+            </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><a class="icon" href="http://twitter.com/tomimickelsson">
+    <span id="icotwitter">&nbsp;</span> twitter</a></p>
+<p><a class="icon" href="mailto:tomi.mickelsson@iki.fi">
+    <span id="icoenve">&nbsp;</span> tomi.mickelsson@iki.fi</a></p>
+
+
+
+
+
+            <h3>Blog Posts</h3>
+            
+            <p class="plink"><a class=""
+         href="/2014/01/responsive-gallery" >Responsive HTML5 image gallery tutorial</a></p>
+            
+            <p class="plink"><a class="sel"
+        >Mapcolorizer.js: Choropleth maps with Leaflet</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2013/01/js-jquery-boilerplates" >My favorite Javascript + jQuery boilerplates</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/11/screenshot-fetcher" >Android &amp; iOS screenshot fetcher</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/07/viewsrc-chrome-ext" >Quick source viewer - Chrome extension</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/04/save-css-chrome-ext" >Save CSS - Chrome extension makes you fly</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/03/multi-touch-demo" >Multi-touch events playground</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/02/django-sqlite" >Django, SQLite and writes</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/02/tech-stack" >Tech stack of my blog</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/02/hello-world" >Hello World!</a></p>
+            
+
+
+
+
+
+        </div>
+
+        
+
+
+       
+
+    </div>
+
+    <div id="page">
+        
+
+
+
+
+
+
+<div class="post">
+    <h1>Mapcolorizer.js: Choropleth maps with Leaflet</h1>
+
+    
+
+    <div class="date">Nov 22, 2013
+    </div>
+
+    
+
+    <p><img src="/static/mapcolorizer.png" class="title" /></p>
+<p>I've had an interest to interactive maps for a long time and always wanted to
+do something nice and useful with them. When I discovered
+<a href="http://leafletjs.com/examples/choropleth.html">this choropleth demo</a> of Leaflet,
+I knew I had to make something similar of Finland.</p>
+<p>Many of the 320 communes in Finland are
+small and currently struggling economically. Discussion of merges are in the air. Putting
+together opensource tools and open statistical data, my aim was to
+visualize the situation and contribute opensource code along the way.</p>
+<p>Leaflet seemed a solid solution but I did try other tech too. Google Maps had some flicker with large polygon count, and I wanted to experiment with open tile servers anyway. Opensource alternatives are many 
+(
+<a href="http://www.openlayers.org/">OpenLayers</a>,
+<a href="http://modestmaps.com/">ModestMaps</a>,
+<a href="http://polymaps.org">PolyMaps</a>,
+<a href="http://kartograph.org/">KartoGraph</a>
+) but they didn't provide the same level of featurefulness and modern approach as Leaflet. In the end, it was easy to pick Leaflet.</p>
+<p>My work produced two deliverables: a jQuery plugin and a site visualizing
+the communes of Finland.</p>
+<h2>Mapcolorizer.js</h2>
+<p><a href="https://github.com/tomimick/mapcolorizer.git">Mapcolorizer.js</a>
+is a jQuery plugin that takes in polygon data as GeoJSON,
+statistical data as JSON and then colorizes the polygons on top of a
+map, relying on Leaflet base functionality.</p>
+<p>Usage is as simple as this:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span><span class="nx">url_geoson</span><span class="o">:</span> <span class="s2">&quot;data/kuntarajat.geojson&quot;</span><span class="p">};</span>
+<span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#map1&quot;</span><span class="p">).</span><span class="nx">mapcolorizer</span><span class="p">(</span><span class="nx">options</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s2">&quot;mapcolorizer&quot;</span><span class="p">);</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">map</span><span class="p">.</span><span class="nx">loadData</span><span class="p">(</span><span class="s2">&quot;data/2014-statistics.json&quot;</span><span class="p">);</span>
+    <span class="nx">map</span><span class="p">.</span><span class="nx">setTileServer</span><span class="p">(</span><span class="s2">&quot;mapquest&quot;</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<p>Check the instructions and API in GitHub README.</p>
+<h2>Kuntakartta.org demo</h2>
+<p><a href="http://kuntakartta.org">kuntakartta.org</a>
+is a site that visualizes various statistical data of
+Finland's 320 communes. Commune polygons were converted from a published .KML file, and
+statistical data was gathered from 2 places, converted from raw to JSON with
+the help of a simple Python script.
+If you know Finnish, there is
+<a href="http://kuntakartta.org/dev.html">some talk of data and examples</a> in the site.</p>
+<p>I took the base HTML template from
+<a href="http://html5boilerplate.com/">html5boilerplate</a> even though there is some
+extra stuff not needed. Bootstrap would have been overkill.</p>
+<p>Used HTML5 drag'n'drop and FileReader features for letting the user drop a local user authored JSON data file on map and see it visualized.</p>
+<p>Since there is no app server requirement, kuntakartta.org is hosted by GitHub pages.</p>
+<h2>Github Pages</h2>
+<p>This was my first project to use
+<a href="http://pages.github.com/">GitHub pages</a> and I must say I'm impressed.
+Such an easy way for a developer to publish a static frontend for an
+opensource project!</p>
+<p>The <a href="https://help.github.com/articles/creating-project-pages-manually">steps to create a site</a>
+are simple. When your actual project is finished
+and commited to GitHub, do this and you'll a have site in a few minutes:</p>
+<div class="codehilite"><pre>git clone https://github.com/user/repository.git
+<span class="nb">cd </span>repository
+git checkout --orphan gh-pages
+git rm -rf .
+<span class="c"># copy your site files...</span>
+git add
+git commit
+git git push origin gh-pages
+</pre></div>
+
+
+<p>Since the GeoJSON file of Finland is 1MB in size, I was a little worried about host load.
+I investigated the limits and found an answer where
+<a href="http://www.quora.com/GitHub/What-are-bandwidth-and-traffic-limits-for-GitHub-pages">they say</a> that unless I do a massive porn site, there shouldn't be a problem. Most likely the load of my site stays low enough to be under radar.</p>
+<p>The files served by GitHub are GZipped, have an Expires header of 10 minutes, and implement ETags. Pretty solid.</p>
+<h2>Markdown Preview</h2>
+<p>While writing the README.md, or any Markdown text, you need to see the preview
+of the HTML before commiting text. I used a nice Chrome extension
+<a href="https://chrome.google.com/webstore/detail/markdown-preview-plus/febilkbfcbhebfnokafefeacimjdckgl">Markdown Preview Plus</a> for this job.
+It even supports GitHub flavored Markdown. Recommended.</p>
+<h2>Choro?</h2>
+<p>Yeah, I know, pretty scientific name for coloring stuff. Go read on
+<a href="http://en.wikipedia.org/wiki/Choropleth_map">Wikipedia</a>.</p>
+
+    <p class="author">&mdash; Tomi Mickelsson</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'tomicloud'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <div id="footer">
+
+
+
+    <p>
+    <a class="icon" href="http://twitter.com/tomimickelsson"><span id="icotwitter">&nbsp;</span> twitter</a> |
+    <a class="icon" href="mailto:tomi.mickelsson@iki.fi"><span id="icoenve">&nbsp;</span> tomi.mickelsson@iki.fi</a>
+
+    </p>
+
+    <p>&copy; 2015 Tomi Mickelsson</p>
+
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+}
+
+    
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    
+    <script src="/static/main.js"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        MAIN.main();
+    });
+</script>
+
+
+
+
+
+
+
+
+
+</html>
+

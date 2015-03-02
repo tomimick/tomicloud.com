@@ -1,0 +1,527 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Android &amp; iOS screenshot fetcher - Tomi's Blog</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+    <meta name="description" content="Home of Tomi Mickelsson and blog about tech"/>
+
+
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes" name="viewport" />
+
+
+    <link rel="shortcut icon" href="/static/favicon.ico" />
+
+    <link rel="apple-touch-icon" type="image/png" href="/static/applehome-tomi.png" />
+
+
+    <link rel="stylesheet" href="/static/main.css" type="text/css" />
+    <link rel="stylesheet" href="/static/pastie.css" type="text/css" />
+
+    <link rel="stylesheet" href="/static/mobile.css" type="text/css" />
+
+    <link rel="stylesheet" href="/static/full.css" type="text/css" />
+
+
+
+<!--[if lte IE 8]>
+    <link rel="stylesheet" type="text/css" href="/static/ie.css"/>
+<![endif]-->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30210642-1']);
+  _gaq.push(['_setDomainName', 'tomicloud.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+    </head>
+    <body>
+
+    <div id="header">
+        
+
+
+        <a id="logo" title="Home" href="/">&nbsp;</a>
+        <p>Tomi's blog about tech</p>
+
+
+        <div class="nav">
+            <a href="/" class="icon " >
+                <span id="icohome">&nbsp;</span>Blog</a>
+            <a href="/work" class="icon ">
+                <span id="icowork">&nbsp;</span>Work</a>
+            <a href="/about" class="icon ">
+                <span id="icoabout">&nbsp;</span>About</a>
+        </div>
+    </div>
+
+    <div id="sidebar">
+        <div>
+
+            <p class="mypic">
+
+
+            <img src="/static/tomimickelsson.png" title="Tomi Mickelsson" />
+            </p>
+
+            <p class="colorize">
+            Tomi is a software engineer working as a freelance consultant in
+            <span>HTML5</span> and <span>mobile</span> projects.
+
+
+
+
+
+            </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><a class="icon" href="http://twitter.com/tomimickelsson">
+    <span id="icotwitter">&nbsp;</span> twitter</a></p>
+<p><a class="icon" href="mailto:tomi.mickelsson@iki.fi">
+    <span id="icoenve">&nbsp;</span> tomi.mickelsson@iki.fi</a></p>
+
+
+
+
+
+            <h3>Blog Posts</h3>
+            
+            <p class="plink"><a class=""
+         href="/2014/01/responsive-gallery" >Responsive HTML5 image gallery tutorial</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2013/11/mapcolorizer" >Mapcolorizer.js: Choropleth maps with Leaflet</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2013/01/js-jquery-boilerplates" >My favorite Javascript + jQuery boilerplates</a></p>
+            
+            <p class="plink"><a class="sel"
+        >Android &amp; iOS screenshot fetcher</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/07/viewsrc-chrome-ext" >Quick source viewer - Chrome extension</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/04/save-css-chrome-ext" >Save CSS - Chrome extension makes you fly</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/03/multi-touch-demo" >Multi-touch events playground</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/02/django-sqlite" >Django, SQLite and writes</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/02/tech-stack" >Tech stack of my blog</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/02/hello-world" >Hello World!</a></p>
+            
+
+
+
+
+
+        </div>
+
+        
+
+
+       
+
+    </div>
+
+    <div id="page">
+        
+
+
+
+<!-- style for this post -->
+<style>
+.appshots a {
+  display: inline-block;
+  max-width: 27%;
+  text-align: center;
+  text-decoration: none;
+  padding: 2%;
+  margin: 0;
+  margin-top: 20px;
+}
+.appshots a:hover {
+  padding: 2%;
+  margin: 0;
+}
+.appshots p.size {
+  color: #444;
+}
+.appshots p {
+  margin: 0 0 0 -30px;
+}
+
+</style>
+
+
+
+
+<div class="post">
+    <h1>Android &amp; iOS screenshot fetcher</h1>
+
+    
+
+    <div class="date">Nov 25, 2012
+    </div>
+
+    
+
+    <p><img src="/static/appshots.png" class="title" /></p>
+<p>Here's a python script that I started a long time ago to <code>fetch screenshots of
+the top ranking Android and iPhone app shots from the App stores</code>. I had a
+vision that I would make a public site that lists the screen shots and design
+patterns of the best mobile apps, a listing that could provide inspiration and
+learning points for mobile developers and designers.</p>
+<p>Fast forward months and I realize that I haven't had the time to start this
+project. Been busy with customer projects. However, some nice people have
+actually created sites with lists of mobile screenshots.  Take a look of
+these nice sites:</p>
+<ul>
+<li><a href="http://androidniceties.tumblr.com/">AndroidNiceties</a>: a collection of Android screenshots and</li>
+<li><a href="http://pttrns.com/">pttrns</a>: a collection of iPhone screenshots.</li>
+</ul>
+<p>These sites are good starting points for people looking for design
+inspiration. Be sure also to read:</p>
+<ul>
+<li><a href="http://developer.android.com/design/index.html">The official Android design guide</a>
+and</li>
+<li><a href="http://developer.apple.com/library/ios/#documentation/userexperience/conceptual/mobilehig/Introduction/Introduction.html">iOS Human Interface Guidelines</a>.</li>
+</ul>
+<p>Anyway, I'm still publishing my screenshot fetcher script, and the montage of
+shots I just created of the top Android and iOS apps. Enjoy.</p>
+<h2>Top free apps in Finland, November 2012</h2>
+<div class="appshots">
+    <a href="/media/iphone-top50.jpg" target="_blank"><img src="/static/shot-ios.png" />
+    <p>iPhone top 50</p>
+    <p class="size">3.5MB</p>
+    </a>
+    <a href="/media/ipad-top50.jpg" target="_blank"><img src="/static/shot-ios.png" />
+    <p>iPad top 50</p>
+    <p class="size">2.0MB</p>
+    </a>
+    <a href="/media/android-top24.jpg" target="_blank"><img src="/static/shot-and.png" />
+    <p>Android top 24</p>
+    <p class="size">1.7MB</p>
+    </a>
+</div>
+
+<h2>Fetching</h2>
+<p>Both Google Play and App Store provide pages that list the top ranking
+free and paid apps in the store. The script fetches these listing
+pages and then scrapes the individual app pages for the screenshots.
+App Store provides both iPhone and iPad screenshots separately, Google Play
+does not differentiate phone vs tablet shots.</p>
+<p>The script uses <code>urllib2</code> from the standard python library to fetch the HTML
+pages from the app stores. <a href="http://lxml.de/">lxml</a> is used for the scraping of
+HTML of the page.  lxml is a wrapper lib to the great C library libxml2.  A
+few years ago I tested some python xml libs and found lxml to be fastest.
+Been using that since.</p>
+<p>Having been exposed to XPath queries earlier, I'm using XPath to find the
+particular DOM elements from the HTML. lxml also provides <a href="http://lxml.de/cssselect.html">lxml.cssselect</a>
+module, which provides CSS alike selectors for finding elements. To find out
+what elements to find for in the pages, I used the web inspector in Chrome.</p>
+<p>Google Play seems to be able to resize the screenshots upon fetch, see the
+height parameter in the script. To get the original size of the shot, I'm
+using a large height, 2000 pixels.</p>
+<h2>The script</h2>
+<p>The script takes <code>a single argument "android" or "ios"</code> to determine which app
+store to fetch shots from. The downloaded shots will appear under a sub
+folder "android", "iphone" or "ipad".</p>
+<p>Here's the complete python script. You can
+<a href="http://tomicloud.com/media/screenshot-fetcher.py">download the script</a> too.</p>
+<div class="codehilite"><pre><span class="c">#!/usr/bin/python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="c"># screenshot-fetcher.py: fetch android/ios app screenshots from app stores</span>
+<span class="c">#</span>
+<span class="c"># Author: Tomi.Mickelsson@iki.fi</span>
+
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">lxml.html</span> <span class="kn">import</span> <span class="n">parse</span>
+<span class="kn">from</span> <span class="nn">urllib2</span> <span class="kn">import</span> <span class="n">urlopen</span>
+
+<span class="k">def</span> <span class="nf">fetch_ios_top_list</span><span class="p">(</span><span class="n">free_apps</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="s">&quot; Fetch list of top ios apps &quot;</span>
+
+    <span class="k">if</span> <span class="n">free_apps</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;http://www.apple.com/itunes/charts/free-apps/&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;http://www.apple.com/itunes/charts/paid-apps/&quot;</span>
+
+    <span class="n">doc</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">get_element_by_id</span><span class="p">(</span><span class="s">&quot;grid&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;href&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">grid</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s">&quot;li&quot;</span><span class="p">)]</span>
+
+<span class="k">def</span> <span class="nf">fetch_ios_app_shots</span><span class="p">(</span><span class="n">rank</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+    <span class="s">&quot; Fetch all screenshots of this iphone/ipad app &quot;</span>
+
+    <span class="k">print</span> <span class="s">&quot;fetch app page&quot;</span><span class="p">,</span> <span class="n">url</span>
+
+    <span class="n">doc</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">))</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span>
+
+    <span class="c"># get title</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">&quot;//div[@id=&#39;title&#39;]//h1&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
+    <span class="k">print</span> <span class="s">&quot;TITLE&quot;</span><span class="p">,</span> <span class="n">title</span>
+
+    <span class="c"># get iphone shots</span>
+    <span class="n">iphoneimg</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">&quot;//div[contains(@class, &#39;iphone-screen-shots&#39;)]//img&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">img</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iphoneimg</span><span class="p">):</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;src&quot;</span><span class="p">)</span>
+<span class="c">#         if &quot;landscape&quot; in img.get(&quot;class&quot;):</span>
+<span class="c">#             fname = &quot;L-&quot;+fname</span>
+        <span class="n">save_img</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="s">&quot;iphone&quot;</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+
+    <span class="c"># get ipad shots</span>
+    <span class="n">ipadimg</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">&quot;//div[contains(@class, &#39;ipad-screen-shots&#39;)]//img&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">img</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ipadimg</span><span class="p">):</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;src&quot;</span><span class="p">)</span>
+        <span class="n">save_img</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="s">&quot;ipad&quot;</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">fetch_android_top_list</span><span class="p">(</span><span class="n">free_apps</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="s">&quot; Fetch list of app urls of top android apps &quot;</span>
+
+    <span class="k">if</span> <span class="n">free_apps</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://play.google.com/store/apps/collection/topselling_free&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://play.google.com/store/apps/collection/topselling_paid&quot;</span>
+
+    <span class="c"># 2nd page:</span>
+    <span class="c"># https://play.google.com/store/apps/collection/topselling_free?start=24&amp;num=24</span>
+
+    <span class="n">doc</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">))</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span>
+    <span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">&quot;//ul[contains(@class, &#39;snippet-list&#39;)]//li//a[contains(@class, &#39;thumbnail&#39;)]&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;href&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">li</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">fetch_android_app_shots</span><span class="p">(</span><span class="n">rank</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+    <span class="s">&quot; Fetch all screenshots of this iphone/ipad app &quot;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&quot;http&quot;</span><span class="p">):</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://play.google.com/&quot;</span> <span class="o">+</span> <span class="n">url</span>
+
+    <span class="n">doc</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">))</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span>
+
+    <span class="c"># get title</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">&quot;//h1[contains(@class, &#39;doc-banner-title&#39;)]&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">title</span><span class="p">:</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="n">title</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
+    <span class="k">print</span> <span class="s">&quot;TITLE&quot;</span><span class="p">,</span> <span class="n">title</span>
+
+    <span class="c"># get shots</span>
+    <span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">&quot;//img[contains(@class, &#39;doc-screenshot-img&#39;)]&quot;</span><span class="p">)</span>
+    <span class="n">imglist</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;src&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">li</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">url</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">imglist</span><span class="p">):</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;h230&quot;</span><span class="p">,</span> <span class="s">&quot;h2000&quot;</span><span class="p">)</span> <span class="c"># height of image</span>
+        <span class="n">save_img</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="s">&quot;android&quot;</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">save_img</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="nb">dir</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">imgindex</span><span class="p">):</span>
+    <span class="s">&quot; Fetch an image from the url to a file &quot;</span>
+
+    <span class="n">fname</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">/</span><span class="si">%03d</span><span class="s">.</span><span class="si">%s</span><span class="s">_</span><span class="si">%d</span><span class="s">.jpg&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">title</span><span class="p">[:</span><span class="mi">20</span><span class="p">],</span> <span class="n">imgindex</span><span class="p">)</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="n">fname</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">,</span> <span class="s">&quot;_&quot;</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;  &quot;</span><span class="p">,</span><span class="n">fname</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="n">dest</span> <span class="o">=</span> <span class="nb">file</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s">&quot;wb&quot;</span><span class="p">)</span>
+    <span class="n">dest</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">dest</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">ostype</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c"># last arg</span>
+
+    <span class="c"># create dirs for downloaded screenshots</span>
+    <span class="n">dirs</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;android&quot;</span><span class="p">,</span> <span class="s">&quot;iphone&quot;</span><span class="p">,</span> <span class="s">&quot;ipad&quot;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dirs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+
+    <span class="n">free_apps</span> <span class="o">=</span> <span class="bp">True</span>
+
+    <span class="k">if</span> <span class="n">ostype</span> <span class="o">==</span> <span class="s">&quot;android&quot;</span><span class="p">:</span>
+        <span class="c"># fetch android shots</span>
+        <span class="n">urllist</span> <span class="o">=</span> <span class="n">fetch_android_top_list</span><span class="p">(</span><span class="n">free_apps</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">&quot;android app count:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">urllist</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">url</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">urllist</span><span class="p">):</span>
+            <span class="n">fetch_android_app_shots</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">ostype</span> <span class="o">==</span> <span class="s">&quot;ios&quot;</span><span class="p">:</span>
+        <span class="c"># fetch ios shots</span>
+        <span class="n">urllist</span> <span class="o">=</span> <span class="n">fetch_ios_top_list</span><span class="p">(</span><span class="n">free_apps</span><span class="p">)[:</span><span class="mi">50</span><span class="p">]</span>
+        <span class="k">print</span> <span class="s">&quot;ios app count:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">urllist</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">url</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">urllist</span><span class="p">):</span>
+            <span class="n">fetch_ios_app_shots</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">&quot;unknown os&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Remember to install the lxml library:</p>
+<div class="codehilite"><pre>sudo easy_install lxml
+</pre></div>
+
+
+<h2>ImageMagick montage</h2>
+<p><a href="http://www.imagemagick.org">ImageMagick</a> is a wonderful package of command
+line tools for versatile manipulation of images. For the creation of the
+montage of screenshots, I'm using the tool named montage:</p>
+<div class="codehilite"><pre>montage -label %f -tile 5x -title <span class="s1">&#39;iPhone top 50 apps - Nov 2012&#39;</span> <span class="se">\</span>
+  -pointsize 11 -font Helvetica -geometry 160x240+4+8 <span class="se">\</span>
+  -background <span class="s1">&#39;#ddddff&#39;</span>  * ../iphone50.jpg
+</pre></div>
+
+
+<p>This single invocation of montage generates the whole image including sorting
+shots based on name, labeling shots, having a layout of 5 columns, and
+resizing shots to 160x240. Very powerful.</p>
+<p>To make a smaller final image (to save bandwidth), I only include the 50 of
+the top 100 iOS apps. Likewise, I resize the images to smaller size because I
+want to save bandwidth of my site. You can leave the <code>-geometry</code> option out to
+have the full size shots in your own montage.</p>
+
+    <p class="author">&mdash; Tomi Mickelsson</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'tomicloud'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <div id="footer">
+
+
+
+    <p>
+    <a class="icon" href="http://twitter.com/tomimickelsson"><span id="icotwitter">&nbsp;</span> twitter</a> |
+    <a class="icon" href="mailto:tomi.mickelsson@iki.fi"><span id="icoenve">&nbsp;</span> tomi.mickelsson@iki.fi</a>
+
+    </p>
+
+    <p>&copy; 2015 Tomi Mickelsson</p>
+
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+}
+
+    
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    
+    <script src="/static/main.js"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        MAIN.main();
+    });
+</script>
+
+
+
+
+
+
+
+
+
+</html>
+

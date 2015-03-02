@@ -1,0 +1,108 @@
+
+@media (min-width: 760px) {
+
+body {
+    width: 940px;
+    margin: 10px auto;
+
+/*    font-family: scolar, serif;*/
+/*    font-family: 'Ubuntu', sans-serif;*/
+/*    font-family: 'Droid Serif', sans-serif;*/
+
+}
+
+div#header #logo {
+    left: 87px; top: 37px;
+    width: 118px;
+    height: 84px;
+    -webkit-transition: -webkit-transform 0.2s ease-out;
+    -moz-transition: -moz-transform 0.2s ease;
+    background: url(rsslogo.png) no-repeat left top;
+}
+div#header #logo:hover {
+    -webkit-transform: scale(1.1) rotate(6deg);
+    -moz-transform: scale(1.1) rotate(6deg);
+}
+
+p {
+    line-height: 20px;
+}
+ul {
+    line-height: 24px;
+}
+
+
+p.mypic {
+/*    -webkit-perspective: 800px;*/
+/*    -moz-perspective: 800px;*/
+
+/*    width: 100%;*/
+    margin-top: 40px;
+}
+
+p.mypic >img {
+    float: right;
+    height: 83px;
+    margin-top: -19px;
+
+/*    background: white;*/
+/*    opacity: 0.99;*/
+/*    -webkit-transform: rotateY(0deg);*/
+/*    -webkit-transform-style: preserve-3d;*/
+/*    -webkit-backface-visibility: hidden;*/
+
+/*    -moz-transform: rotateY(0deg);*/
+/*    -moz-transform-style: preserve-3d;*/
+/*    -moz-backface-visibility: hidden;*/
+
+/*    -moz-transition: all 0.5s ease-in-out;*/
+/*    -webkit-transition: all 0.5s ease-in-out;*/
+}
+
+p.mypic.large {
+    height: 227px;
+    position: relative;
+    margin: -40px 0 -10px 0;
+    cursor: help;
+}
+p.mypic.large > img {
+    position: absolute;
+    left: 44px;
+    top: 0;
+    margin: 0;
+    height: auto;
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+}
+
+p.mypic.large:hover >img {
+/*    display: none;*/
+    -webkit-transform: perspective(250px) rotateY(180deg);
+    -moz-transform: rotate(10deg);
+/*    -webkit-backface-visibility: hidden;*/
+}
+
+.frontpost {
+    overflow: hidden;
+}
+
+.frontpost img {
+    margin-right: 10px;
+    border-radius: 8px;
+/*    width: 100%;*/
+/*    margin-bottom: 10px;*/
+/*    max-width: 48%;*/
+}
+.frontpost .body p {
+/*    margin-left: 50%;*/
+/*    font-size: 120%;*/
+/*    width: 100%;*/
+/*    margin-bottom: 10px;*/
+}
+
+/*#sidebar .colorize span {*/
+/*    white-space: nowrap;*/
+/*}*/
+
+}
+

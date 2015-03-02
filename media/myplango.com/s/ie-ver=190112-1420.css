@@ -1,0 +1,53 @@
+
+/* IE-specific CSS "fixes". For IE 8 and less.
+ *
+ * (IE9 seems to improve a lot towards HTML5 and CSS3.) */
+
+body {
+    /* disable Proxima! */
+    font-family: Helvetica,Arial,Verdana,sans-serif;
+}
+
+textarea {
+    overflow-y: auto;
+}
+
+a:hover > img, a#logosmall {
+    opacity: 1;
+}
+
+div.feed h2 span {
+    border: 0;
+    top: -3px;
+    padding: 2px 5px;
+}
+
+a.bt {
+    border: 1px solid #cccccc;
+}
+
+a.bt:active {
+    border: 1px solid #888;
+}
+
+#privacylist a.sel {
+    border: 1px solid #aaa;
+}
+
+#create {
+    border: 1px solid #3a4e65;
+}
+a#asubmit {
+    filter:alpha(opacity=100); zoom: 1;
+    background: #e0e0e0;
+}
+a#asubmit:hover {
+    background: #d0d0d0;
+}
+
+div#intesellist a.inte:hover {
+/*    color: #333 !important;*/
+/*    background: #fff;*/
+    text-decoration: underline;
+}
+

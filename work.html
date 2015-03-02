@@ -1,0 +1,633 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tomi's Blog</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+    <meta name="description" content="Home of Tomi Mickelsson and blog about tech"/>
+
+
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes" name="viewport" />
+
+
+    <link rel="shortcut icon" href="/static/favicon.ico" />
+
+    <link rel="apple-touch-icon" type="image/png" href="/static/applehome-tomi.png" />
+
+
+    <link rel="stylesheet" href="/static/main.css" type="text/css" />
+    <link rel="stylesheet" href="/static/pastie.css" type="text/css" />
+
+    <link rel="stylesheet" href="/static/mobile.css" type="text/css" />
+
+    <link rel="stylesheet" href="/static/full.css" type="text/css" />
+
+
+
+<!--[if lte IE 8]>
+    <link rel="stylesheet" type="text/css" href="/static/ie.css"/>
+<![endif]-->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30210642-1']);
+  _gaq.push(['_setDomainName', 'tomicloud.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+    </head>
+    <body>
+
+    <div id="header">
+        
+
+
+        <a id="logo" title="Home" href="/">&nbsp;</a>
+        <p>Tomi's blog about tech</p>
+
+
+        <div class="nav">
+            <a href="/" class="icon " >
+                <span id="icohome">&nbsp;</span>Blog</a>
+            <a href="/work" class="icon sel">
+                <span id="icowork">&nbsp;</span>Work</a>
+            <a href="/about" class="icon ">
+                <span id="icoabout">&nbsp;</span>About</a>
+        </div>
+    </div>
+
+    <div id="sidebar">
+        <div>
+
+            <p class="mypic">
+
+
+            <img src="/static/tomimickelsson.png" title="Tomi Mickelsson" />
+            </p>
+
+            <p class="colorize">
+            Tomi is a software engineer working as a freelance consultant in
+            <span>HTML5</span> and <span>mobile</span> projects.
+
+
+
+
+
+            </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><a class="icon" href="http://twitter.com/tomimickelsson">
+    <span id="icotwitter">&nbsp;</span> twitter</a></p>
+<p><a class="icon" href="mailto:tomi.mickelsson@iki.fi">
+    <span id="icoenve">&nbsp;</span> tomi.mickelsson@iki.fi</a></p>
+
+
+
+
+
+            <h3>Blog Posts</h3>
+            
+            <p class="plink"><a class=""
+         href="/2014/01/responsive-gallery" >Responsive HTML5 image gallery tutorial</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2013/11/mapcolorizer" >Mapcolorizer.js: Choropleth maps with Leaflet</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2013/01/js-jquery-boilerplates" >My favorite Javascript + jQuery boilerplates</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/11/screenshot-fetcher" >Android &amp; iOS screenshot fetcher</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/07/viewsrc-chrome-ext" >Quick source viewer - Chrome extension</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/04/save-css-chrome-ext" >Save CSS - Chrome extension makes you fly</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/03/multi-touch-demo" >Multi-touch events playground</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/02/django-sqlite" >Django, SQLite and writes</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/02/tech-stack" >Tech stack of my blog</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/02/hello-world" >Hello World!</a></p>
+            
+
+
+
+
+
+        </div>
+
+        
+
+
+       
+
+    </div>
+
+    <div id="page">
+        
+
+<div class="colorize">
+
+    <h1>Work <i class="hid" id="workcount"></i></h1>
+
+
+
+
+
+
+    <p>Stuff I've worked with, for living or for fun. </p>
+
+
+
+
+
+
+
+
+<p id="worktags">
+<a class="sel" href="#">All</a>
+<a href="#" data-cls="plango">Plango</a>
+<a href="#" data-cls="fe">Front-end</a>
+<a href="#" data-cls="be">Back-end</a>
+<a href="#" data-cls="mob">Mobile&nbsp;web</a>
+<a href="#" data-cls="and">Android</a>
+<a href="#" data-cls="proto">Prototypes</a>
+<a href="#" data-cls="misc">Other</a>
+
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="case" data-cls="fe">
+    <img src="/static/cases/ukm-shot3.png"/>
+    <div>
+        <p>HTML5 admin interface for a network security product managing
+        large enterprise networks.</p>
+    </div>
+</div>
+
+
+
+
+<div class="case" data-cls="plango">
+        <img src="/static/cases/plango-frontpage.png"/>
+    <div>
+        <p><a target="_blank"
+            href="/media/myplango.com/">Plango</a> is a mobile social
+        calendar and planner for Facebook. Clients: <span>desktop web, mobile web,
+iPhone, Android in Beta.</span> Scalable back-end in the cloud.
+Extensive use of <span>FB GraphAPI.</span></p>
+    </div>
+</div>
+
+<div class="case" data-cls="plango">
+    <img src="/static/cases/plango-month.png"/>
+    <div>
+        <p>The month view of the Plango calendar in desktop site. Lots of <span>HTML5</span> and <span>CSS3</span> transition effects. (Why use Google Calendar anymore ;)</p>
+    </div>
+</div>
+
+<div class="case" data-cls="plango">
+    <img src="/static/cases/plango-maps.png"/>
+    <div>
+        <p>View all your and your friend's shared events on a map, and get directions. <span>Google maps API</span> in use.</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="case" data-cls="plango mob">
+    <img src="/static/cases/plango-mobi.png"/>
+    <div>
+        <p>Plango main <span>mobile web</span> view, the inbox of social plans. <span>Automatic detection</span> of mobile devices. </p>
+    </div>
+</div>
+<div class="case" data-cls="plango mob">
+    <img src="/static/cases/plango-mobi2.png"/>
+    <div>
+        <p>Plango event details in mobile web. <span>Google maps API</span> in mobile use.</p>
+    </div>
+</div>
+
+<div class="case" data-cls="plango">
+    <img src="/static/cases/plango-iphone.png"/>
+    <div>
+        <p>The flagship interface of Plango: <span>the native iPhone app</span> with world-class UI design and <span>advanced sync.</span> </p>
+    </div>
+</div>
+<div class="case" data-cls="plango and">
+    <img src="/static/cases/plango-android.png"/>
+    <div>
+        <p>Plango <span>native Android app,</span> in private beta, running
+        in the emulator. 2011.</p>
+    </div>
+</div>
+<div class="case" data-cls="plango be">
+    <img src="/static/cases/plango-archi.png"/>
+    <div>
+        <p>Scalable Plango <span>python back-end</span> in the cloud. Custom app framework with <span>nginx, uwsgi, memcached, PostgreSQL.</span> Advanced messaging and Facebook integrations, and offline data synch. Data center <a target="_blank" href="http://www.linode.com">Linode in London.</a></p>
+    </div>
+</div>
+
+
+
+<div class="case" data-cls="plango">
+    <img src="/static/cases/plango-disco1.png"/>
+    <div>
+        <p>Plango <span>Event Recommendation portal.</span>
+        Optimized for <span>HTML5</span>
+        tablets. Native app look&feel with smooth transitions. <span>Advanced
+        algorithms</span> in the backend.</p>
+    </div>
+</div>
+<div class="case" data-cls="plango">
+    <img src="/static/cases/plango-disco2.png"/>
+    <div>
+        <p>Detail view of a discovered Plango event.
+        All transitions performed via <span>CSS3 hardware
+        acceleration.</span> Lots of hand-tuning and fight with browser quirks.</p>
+    </div>
+</div>
+
+
+<div class="case" data-cls="fe">
+    <img src="/static/cases/goact-main.png"/>
+    <div>
+        <p>The first pilot of Plango, an <span>event discovery and planning</span>
+        site that eventually turned into Plango social calendar via <span>customer driven design.</span></p>
+    </div>
+</div>
+<div class="case" data-cls="mob">
+    <img src="/static/cases/goact-mobile.png"/>
+    <div>
+        <p>The <span>mobile web</span> version of the first Plango pilot.</p>
+    </div>
+</div>
+
+
+<div class="case" data-cls="fe">
+    <img src="/static/cases/fiksukurssi.png"/>
+    <div>
+        <p>Service for following stock market data and personal portfolio. Fast and intuitive UI. <span>Great for tablets,</span> uses <span>HTML5 canvas</span> for the graphics. My pet project.</p>
+    </div>
+</div>
+<div class="case" data-cls="mob">
+    <img src="/static/cases/fiksukurssi-mobi.png"/>
+    <div>
+        <p>The <span>mobile web version</span> of the stock service.
+        Interaction adapted into small screen: <span>tap to select stock</span>
+        instead of typing. Remember your portfolio without login.</p>
+    </div>
+</div>
+
+
+
+<div class="case" data-cls="fe">
+    <img src="/static/cases/ekahau-ui.png"/>
+    <div>
+        <p>Administration UI for managing devices in an indoor
+        positioning system. Backend implemented in <span>Java and Tomcat</span> app server. UI runs <span>Jython, a python runtime for JVM.</span></p>
+    </div>
+</div>
+<div class="case" data-cls="be">
+    <img src="/static/cases/ekahau-api.png"/>
+    <div>
+        <p><span>RESTfull XML API</span> in the backend of an indoor positioning system. API fully <span>documented and testable</span> via the browser.</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="case" data-cls="and">
+    <img src="/static/cases/android-goomemo.png"/>
+    <div>
+        <p><a href="http://pocketspark.com/goomemo/">GooMemo</a> is my Android
+        app for the <a
+            href="http://code.google.com/android/adc/">Android Developer
+            Challenge 2</a> in 2009. Advanced note and image taking
+        app with <span>2-way sync with Google Docs</span>, first of a kind at the time. Available in <a href="https://play.google.com/store/apps/details?id=com.pocketspark.goomemo">Play Store.</a>
+
+        </p>
+    </div>
+</div>
+<div class="case" data-cls="and">
+    <img src="/static/cases/android-slides.png"/>
+    <div>
+        <p>I started to follow and develop on <span>Android right after launch.</span> Here's
+        my <a target="_blank" href="http://www.slideshare.net/atomi/google-android-experiences/">Android Experiences</a> presentation given in
+        <a target="_blank" href="http://overtheair.org/blog/">Over the AIR</a> mobile development event in London, April 2008.</p>
+    </div>
+</div>
+<div class="case" data-cls="and">
+    <img src="/static/cases/android-overview-slides.png"/>
+    <div>
+        <p>My second <a target="_blank" href="http://www.slideshare.net/atomi/android-overview">Android Overview</a> presentation in <a target="_blank" href="http://mobiledevcamp.fi/">MobileDevCamp</a> in Helsinki, February 2009.</p>
+    </div>
+</div>
+<div class="case" data-cls="and">
+    <img src="/static/cases/android-spin.png"/>
+    <div>
+        <p>My <span>first published Android app,</span> Spin the bottle game, available in the <a href="https://play.google.com/store/apps/details?id=com.idean.spin">Play Store.</a> Feb 2009. <a href="/media/android-spin-bottle.png">Development story.</a></p>
+    </div>
+</div>
+<div class="case" data-cls="and">
+    <img src="/static/cases/android-phonebook.png"/>
+    <div>
+        <p>One of my first apps on <span>early beta Android SDK</span> in the beginning of 2008.</p>
+    </div>
+</div>
+
+
+
+<div class="case" data-cls="fe">
+    <img src="/static/cases/b.png"/>
+    <div>
+        <p>A pioneering personal finance service.
+        <span>Java backend,</span> hugely visual frontend, lots of
+        data and math in Javascript. <span>Adobe Flex charts.</span></p>
+    </div>
+</div>
+<div class="case" data-cls="fe">
+    <img src="/static/cases/e-vd.png"/>
+    <div>
+        <p>Desktop like experience in the browser. </p>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="case" data-cls="fe">
+    <img src="/static/cases/tract.png"/>
+    <div>
+        <p>Analytical service with a dashboard of drag'n'droppable <span>Ajax-driven widgets.</span></p>
+    </div>
+</div>
+
+<div class="case" data-cls="fe">
+    <img src="/static/cases/st-demo.png"/>
+    <div>
+        <p>A technical demo
+        of the power of <span>CSS3 effects</span> and custom <span>multi-touch
+        events.</span></p>
+    </div>
+</div>
+<div class="case" data-cls="fe">
+    <img src="/static/cases/st-guide.png"/>
+    <div>
+        <p>An interactive manual for a web-based phone platform.
+        All code examples can be <span>edited and run live</span>
+        in the browser.</p>
+    </div>
+</div>
+<div class="case" data-cls="mob">
+    <img src="/static/cases/iphone-spin.png"/>
+    <div>
+        <p>Spin the bottle game running as a <span>web-app on iPhone browser.</span> Using
+        <span>CSS3 transforms.</span> "Staff Pick" nomination by Apple in 2007.
+        Appstore didn't exist yet.</p>
+    </div>
+</div>
+<div class="case" data-cls="mob">
+    <img src="/static/cases/n97-widget.png"/>
+    <div>
+        <p>A family of RSS reader <span>web widgets</span> running in
+        <span>Nokia N97</span> home screen.</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="case" data-cls="proto mob">
+    <img src="/static/cases/proto-varaus.mobi.png"/>
+    <div>
+        <p>A 2007 prototype of a <span>mobile reservation system</span> running fluently in a browser of a <span>low-end
+        Symbian phone</span>. No competitors, untapped opportunity.</p>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="case" data-cls="misc">
+    <img src="/static/cases/misc-photos-nyc.png"/>
+    <div>
+        <p>Personal photo viewing site. One of my <span>first Python scripts,</span>
+        created in 2000 and still in active use.</p>
+    </div>
+</div>
+<div class="case" data-cls="proto">
+    <img src="/static/cases/proto-ajanvaraus.png"/>
+    <div>
+        <p>A prototype of a <span>time reservation system</span> for hair saloons. 2007.</p>
+    </div>
+</div>
+<div class="case" data-cls="proto">
+    <img src="/static/cases/proto-intrachat.png"/>
+    <div>
+        <p>A hobby prototype of a <span>web-based real-time chats</span> for intranets. 2007.</p>
+    </div>
+</div>
+<div class="case" data-cls="proto">
+    <img src="/static/cases/proto-kartta.png"/>
+    <div>
+        <p>A prototype of <span>location based discovery</span> of community services. </p>
+    </div>
+</div>
+<div class="case" data-cls="proto">
+    <img src="/static/cases/proto-ravintolalista.png"/>
+    <div>
+        <p>A prototype of a <span>restaurant menu portal.</span> <span>Scraping data</span> from web and
+        parsing into unified form.</p>
+    </div>
+</div>
+<div class="case" data-cls="proto">
+    <img src="/static/cases/proto-roomreserv.png"/>
+    <div>
+        <p>A prototype of a visual <span>room reservation system</span> for intranets.</p>
+    </div>
+</div>
+
+
+
+<div class="case" data-cls="misc">
+    <img src="/static/cases/ssh-term.png"/>
+    <div>
+        <p>SSH terminal application for Windows. <span>C and C++,</span>
+        low-level cryptography. Lead engineer of the whole
+        client-server platform on Windows.</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="case" data-cls="misc">
+    <img src="/static/cases/lanfax-inbox.png"/>
+    <div>
+        <p><span>Fax automation system</span> for small businesses. Client-server architecture on Windows NT. Truly exciting job in <span>California in 1996.</span> I quickly advanced to chief engineer position.
+        </p>
+    </div>
+</div>
+<div class="case" data-cls="misc">
+    <img src="/static/cases/lanfax-archi.png"/>
+    <div>
+        <p>Diagramming the architecture of the fax automation system
+        platform
+        in 1996.
+        </p>
+    </div>
+</div>
+
+
+<div class="case" data-cls="fe">
+    <img src="/static/cases/netcontrol.png"/>
+    <div>
+        <p>The very first web pages I designed for a company in
+        <span>1995.</span> Learning the web ever since.</p>
+    </div>
+</div>
+
+
+</div>
+
+
+    </div>
+
+    <div id="footer">
+
+
+
+    <p>
+    <a class="icon" href="http://twitter.com/tomimickelsson"><span id="icotwitter">&nbsp;</span> twitter</a> |
+    <a class="icon" href="mailto:tomi.mickelsson@iki.fi"><span id="icoenve">&nbsp;</span> tomi.mickelsson@iki.fi</a>
+
+    </p>
+
+    <p>&copy; 2015 Tomi Mickelsson</p>
+
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+}
+
+    
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    
+    <script src="/static/main.js"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        MAIN.main();
+    });
+</script>
+
+
+
+
+
+</html>
+

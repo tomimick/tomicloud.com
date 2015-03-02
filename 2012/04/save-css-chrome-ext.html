@@ -1,0 +1,531 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Save CSS - Chrome extension makes you fly - Tomi's Blog</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+    <meta name="description" content="Home of Tomi Mickelsson and blog about tech"/>
+
+
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes" name="viewport" />
+
+
+    <link rel="shortcut icon" href="/static/favicon.ico" />
+
+    <link rel="apple-touch-icon" type="image/png" href="/static/applehome-tomi.png" />
+
+
+    <link rel="stylesheet" href="/static/main.css" type="text/css" />
+    <link rel="stylesheet" href="/static/pastie.css" type="text/css" />
+
+    <link rel="stylesheet" href="/static/mobile.css" type="text/css" />
+
+    <link rel="stylesheet" href="/static/full.css" type="text/css" />
+
+
+
+<!--[if lte IE 8]>
+    <link rel="stylesheet" type="text/css" href="/static/ie.css"/>
+<![endif]-->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30210642-1']);
+  _gaq.push(['_setDomainName', 'tomicloud.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+    </head>
+    <body>
+
+    <div id="header">
+        
+
+
+        <a id="logo" title="Home" href="/">&nbsp;</a>
+        <p>Tomi's blog about tech</p>
+
+
+        <div class="nav">
+            <a href="/" class="icon " >
+                <span id="icohome">&nbsp;</span>Blog</a>
+            <a href="/work" class="icon ">
+                <span id="icowork">&nbsp;</span>Work</a>
+            <a href="/about" class="icon ">
+                <span id="icoabout">&nbsp;</span>About</a>
+        </div>
+    </div>
+
+    <div id="sidebar">
+        <div>
+
+            <p class="mypic">
+
+
+            <img src="/static/tomimickelsson.png" title="Tomi Mickelsson" />
+            </p>
+
+            <p class="colorize">
+            Tomi is a software engineer working as a freelance consultant in
+            <span>HTML5</span> and <span>mobile</span> projects.
+
+
+
+
+
+            </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><a class="icon" href="http://twitter.com/tomimickelsson">
+    <span id="icotwitter">&nbsp;</span> twitter</a></p>
+<p><a class="icon" href="mailto:tomi.mickelsson@iki.fi">
+    <span id="icoenve">&nbsp;</span> tomi.mickelsson@iki.fi</a></p>
+
+
+
+
+
+            <h3>Blog Posts</h3>
+            
+            <p class="plink"><a class=""
+         href="/2014/01/responsive-gallery" >Responsive HTML5 image gallery tutorial</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2013/11/mapcolorizer" >Mapcolorizer.js: Choropleth maps with Leaflet</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2013/01/js-jquery-boilerplates" >My favorite Javascript + jQuery boilerplates</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/11/screenshot-fetcher" >Android &amp; iOS screenshot fetcher</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/07/viewsrc-chrome-ext" >Quick source viewer - Chrome extension</a></p>
+            
+            <p class="plink"><a class="sel"
+        >Save CSS - Chrome extension makes you fly</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/03/multi-touch-demo" >Multi-touch events playground</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/02/django-sqlite" >Django, SQLite and writes</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/02/tech-stack" >Tech stack of my blog</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/02/hello-world" >Hello World!</a></p>
+            
+
+
+
+
+
+        </div>
+
+        
+
+
+       
+
+    </div>
+
+    <div id="page">
+        
+
+
+
+<!-- style for this post -->
+<style>
+div.codehilite { float: left; width: 45%; margin-right: 3px; font-size: 90%; }
+div#kludge {display:none;}
+
+</style>
+
+
+
+<!-- script for this post -->
+<script type="text/javascript">
+function postinit() {
+$("div.codehilite:first").css("width","auto").css("float","none");
+}
+
+</script>
+
+
+<div class="post">
+    <h1>Save CSS - Chrome extension makes you fly</h1>
+
+    
+
+    <div class="date">Apr 1, 2012
+    </div>
+
+    
+
+    <p><img src="/static/chromeext.png" class="title" /></p>
+<p>My first Chrome extension <a href="https://chrome.google.com/webstore/detail/mflkegihknjnhmpfnaimpfkjbkelhhkf?hl=en-US">Save CSS</a> is now available in the Chrome web store!</p>
+<p>If you are a web developer working with CSS or Javascript and using the
+great built-in Developer tools in the Chrome browser, then this extension
+can improve your workflow a lot. I know it has boosted my own work.</p>
+<p>In a typical workflow of web user interface development, <code>you write a little</code>
+bit of HTML, Javascript and CSS, then <code>view the result live in a browser</code> where
+you <code>continue tweaking the CSS</code> with Developer tools in Chrome/Safari or with
+Firebug in Firefox. When all the tweaks are finished, you then <code>copy the
+modified CSS values manually</code> one by one and paste them back into your editor,
+save all files, and <code>finally view the results again</code> in a browser to verify that
+you remembered to copy everything. You repeat these steps a hundred times a
+day. Clearly there is room for improvement.</p>
+<p>This extension speeds up the workflow by <code>eliminating the manual copy paste
+part and by automatically saving your CSS and Javascript modifications</code> done
+in Developer tools into the original source files in your local disk.</p>
+<p>I have been using this extension privately since October 2011 when the
+<a href="http://blog.chromium.org/2011/10/new-developer-tools-experimental-apis.html">experimental APIs became available</a> in early Dev versions of Chrome. The
+API became officially supported this week when <a href="http://googlechromereleases.blogspot.com/2012/03/stable-channel-release-and-beta-channel.html">Chrome 18 was released</a> and I was finally able to publish this extension in the Chrome store.</p>
+<h2>Setup</h2>
+<p>Fire up your Chrome browser and install the extension from the <a href="https://chrome.google.com/webstore/detail/mflkegihknjnhmpfnaimpfkjbkelhhkf?hl=en-US">Chrome web
+store</a>.</p>
+<p>Then download the required <a href="https://raw.github.com/tomimick/chrome-ext-save-css/master/servers/server.py">Python script</a> or <a href="https://raw.github.com/tomimick/chrome-ext-save-css/master/servers/server.rb">Ruby script</a> to your
+computer, either one, it doesn't matter since they are identical in
+functionality.  Run the script from any folder: <code>python server.py</code> or <code>ruby
+server.rb</code>. The script starts a small web server that actually writes the
+changes sent by Chrome into the local disk since Chrome can't save files for
+security reasons.</p>
+<p>Of course, first make sure you have either Python or Ruby installed on your
+computer. The scripts do not require any additional libraries to install.</p>
+<p>After installation, launch Developer Tools in Chrome. The extension user
+interface is visible as the last tab, <code>"Save"</code>:</p>
+<p><img src="/static/savecss1.png" class="w100" /></p>
+<p>Then browse to the site whose CSS or Javascript you want to modify.  Most
+likely you run the development server on local computer and you have all the
+source files in the local file system.</p>
+<p>Now change any CSS property in the Elements-tab, go to Save-tab and you will
+see an error that says no mapping found.  The extension issues an error since
+it doesn't yet know where to save the changes to.  You need to add a mapping
+rule for the site to map an URL to a local path.</p>
+<p>Click Create and a new mapping will be added with a prefilled URL. Remove the
+file name part from the URL, and enter an absolute path to a local folder
+where the files are saved to. This path should point to the folder where you
+store your CSS and Javascript files of your site.</p>
+<p><strike>Finally click Save and the mapping gets saved.</strike></p>
+<p>Now change a CSS again in the Elements-tab. If everything was configured
+correctly, the CSS was saved into local disk and you should see an entry in
+the "Saved Files" table. If not, you should see an error.</p>
+<p>Here's a screenshot with one mapping and two successful saves:</p>
+<p><img src="/static/savecss2.png" class="w100" /></p>
+<h2>Usage</h2>
+<p>All the standard Chrome Developer Tools operations are available for CSS and
+Javascript tweaking. Here's the summary of what you can do:</p>
+<p><img src="/static/css-edit.png" class="r w50" /></p>
+<p><code>To change a CSS property,</code> double-click either on the property name or the
+value and edit the value with a keyboard. Remember that arrow up and down can
+change numeric values.</p>
+<div class="cl"></div>
+
+<p><img src="/static/css-new.png" class="r w50" /></p>
+<p><code>To add a new CSS property,</code> double-click on the last line of a selector, the one
+with "}", and start typing a new property name.</p>
+<div class="cl"></div>
+
+<p><img src="/static/css-del.png" class="r w50" /></p>
+<p><code>To delete a CSS property,</code> double-click on the property name and delete the
+whole name and press enter.</p>
+<div class="cl"></div>
+
+<p><img src="/static/css-add.png" class="r w50" /></p>
+<p><code>To add a new CSS selector,</code> go to the Resources tab and select the desired CSS
+file (remember the shortcut link in the Elements tab too). Double-click and
+edit the CSS file as you wish. When you press CMD-S, the whole file is saved
+and CSS becomes active.</p>
+<div class="cl"></div>
+
+<p><img src="/static/js-add.png" class="r w50" /></p>
+<p><code>To change Javascript code,</code> go to the Resources tab and select the desired
+Javascript file. Edit and save the whole file with CMD-S. Note that in Chrome,
+<code>there is no need to reload the page</code> since the V8 engine compiles Javascript
+just in time.</p>
+<div class="cl"></div>
+
+<p>And don't be afraid of loosing your comments in the CSS or Javascript files -
+<code>comments are preserved by Chrome</code>. Even <code>vendor prefixes are properly
+preserved</code>. Chrome provides solid piece of tech.</p>
+<p>The extension doesn't work with CSS compilation setups like
+<a href="http://lesscss.org/">LESS</a> since the extension operates at the level of raw
+CSS and not at the higher level.</p>
+<p>If you want to be careful with your CSS/JS tweakings, you can disable the
+automatic save functionality by unchecking the checkbox at the bottom of the
+"Save" tab. Then you can control when to save and what files to save. I'm not
+sure how useful this option is but it's there.</p>
+<h2>Under the hood</h2>
+<p>The extension relies on the following <a href="http://code.google.com/chrome/extensions/dev/devtools.html">devtools API</a> of Chrome:</p>
+<div class="codehilite"><pre><span class="c1">// request browser to call us when CSS or JS is changed by dev tools</span>
+<span class="nx">chrome</span><span class="p">.</span><span class="nx">devtools</span><span class="p">.</span><span class="nx">inspectedWindow</span><span class="p">.</span><span class="nx">onResourceContentCommitted</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">resource</span><span class="p">,</span> <span class="nx">content</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// CSS or JS was changed, we got the content</span>
+
+    <span class="c1">// content:       the body of CSS or JS file</span>
+    <span class="c1">// resource.url:  the url of file</span>
+    <span class="c1">// resource.type: type of file (css, javascript, document)</span>
+
+<span class="p">});</span>
+</pre></div>
+
+
+<p>This powerful API became officially supported in Chrome 18 in March 28, 2012.</p>
+<p>The API is very simple: whenever a CSS or Javascript file is modified in the
+Developer tools, this callback gets called in the extension. The whole content
+of the CSS or Javascript file is provided, and all the hard work of merging
+new changes in has been done by Chrome.</p>
+<p>Since <code>Chrome extensions do not have access to the local file system,</code> the write
+operation needs to be done externally.  The extension thus sends the content
+to an external script via AJAX.  Being a Python developer, I wrote the script
+in Python. The script just receives the content and an absolute destination
+file path, and writes the file to disk. In case of error, it returns a
+message.</p>
+<p>The external script is simple since all the configurations are taken care of
+by the extension. Mappings are stored permanently into localstorage which is
+private to the extension.</p>
+<h2>Source code</h2>
+<p>The whole source code to the extension and to the Python and Ruby web server
+scripts are available in <a href="https://github.com/tomimick/chrome-ext-save-css">GitHub</a>.</p>
+<p>I'm a long-time Python developer but wrote the script also in Ruby for the fun
+of it. Here they are both side by side, like twin brothers.</p>
+<p>Server scripts in Python and Ruby:</p>
+<div class="codehilite"><pre><span class="c">#!/usr/bin/python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="c"># server.py: receive CSS and JS files from Chrome extension</span>
+<span class="c">#   and save files locally</span>
+<span class="c">#</span>
+<span class="c"># Author: Tomi.Mickelsson@iki.fi</span>
+<span class="c">#   30.10.2011 - Created</span>
+
+<span class="kn">from</span> <span class="nn">BaseHTTPServer</span> <span class="kn">import</span> <span class="n">HTTPServer</span><span class="p">,</span> <span class="n">BaseHTTPRequestHandler</span>
+
+<span class="k">class</span> <span class="nc">MyServer</span><span class="p">(</span><span class="n">BaseHTTPRequestHandler</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">do_POST</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">hd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span>
+
+        <span class="c"># chrome sent data:</span>
+        <span class="n">url</span>   <span class="o">=</span> <span class="n">hd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;X-origurl&quot;</span><span class="p">)</span>
+        <span class="n">fpath</span> <span class="o">=</span> <span class="n">hd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;X-filepath&quot;</span><span class="p">)</span>
+        <span class="n">bodylen</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">hd</span><span class="p">[</span><span class="s">&#39;content-length&#39;</span><span class="p">])</span>
+        <span class="n">body</span>    <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">bodylen</span><span class="p">)</span>
+        <span class="k">print</span> <span class="n">url</span><span class="p">,</span> <span class="s">&quot; -&gt;&quot;</span><span class="p">,</span> <span class="n">fpath</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+
+        <span class="n">reply</span> <span class="o">=</span> <span class="s">&quot;OK&quot;</span>
+
+        <span class="c"># save file</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fpath</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">)</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">print</span> <span class="n">e</span>
+            <span class="n">reply</span> <span class="o">=</span> <span class="s">&quot;Server couldn&#39;t save &quot;</span><span class="o">+</span><span class="n">fpath</span>
+
+        <span class="c"># return reply</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_response</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end_headers</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">reply</span><span class="p">)</span>
+
+<span class="c"># start http server</span>
+<span class="n">server</span> <span class="o">=</span> <span class="n">HTTPServer</span><span class="p">((</span><span class="s">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">),</span> <span class="n">MyServer</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&quot;Server running in port 8080...&quot;</span>
+<span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+</pre></div>
+
+
+<div id="kludge"></div>
+
+<div class="codehilite"><pre><span class="c1">#!/usr/bin/ruby</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="c1"># server.rb: receive CSS and JS files from Chrome extension</span>
+<span class="c1">#   and save files locally</span>
+<span class="c1">#</span>
+<span class="c1"># Author: Tomi.Mickelsson@iki.fi</span>
+<span class="c1">#   04.02.2012 - Created</span>
+
+<span class="nb">require</span> <span class="s1">&#39;webrick&#39;</span>
+<span class="kp">include</span> <span class="no">WEBrick</span>
+
+<span class="k">class</span> <span class="nc">MyServlet</span> <span class="o">&lt;</span> <span class="no">HTTPServlet</span><span class="o">::</span><span class="no">AbstractServlet</span>
+
+  <span class="k">def</span> <span class="nf">do_POST</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+    <span class="n">url</span>   <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">header</span><span class="o">[</span><span class="s1">&#39;x-origurl&#39;</span><span class="o">]</span>
+    <span class="n">fpath</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">header</span><span class="o">[</span><span class="s1">&#39;x-filepath&#39;</span><span class="o">]</span>
+    <span class="n">bodylen</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">header</span><span class="o">[</span><span class="s1">&#39;content-length&#39;</span><span class="o">]</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">body</span>
+    <span class="n">fpath</span> <span class="o">=</span> <span class="n">fpath</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span> <span class="n">url</span><span class="p">,</span> <span class="s2">&quot; -&gt; &quot;</span><span class="p">,</span> <span class="n">fpath</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">bodylen</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+    <span class="n">reply</span> <span class="o">=</span> <span class="s2">&quot;OK&quot;</span>
+
+    <span class="c1"># save file</span>
+    <span class="k">begin</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fpath</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">syswrite</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span>
+    <span class="k">rescue</span> <span class="o">=&gt;</span> <span class="n">e</span>
+        <span class="nb">puts</span> <span class="s2">&quot;EXCEP &quot;</span> <span class="o">+</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span>
+        <span class="n">reply</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span>
+    <span class="k">end</span>
+
+    <span class="n">res</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;200&quot;</span>
+    <span class="n">res</span><span class="o">.</span><span class="n">body</span> <span class="o">=</span> <span class="n">reply</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+
+<span class="c1"># start server</span>
+<span class="n">server</span> <span class="o">=</span> <span class="no">HTTPServer</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:BindAddress</span> <span class="o">=&gt;</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span><span class="ss">:Port</span> <span class="o">=&gt;</span> <span class="mi">8080</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="no">MyServlet</span><span class="p">)</span>
+
+<span class="nb">trap</span> <span class="s1">&#39;INT&#39;</span> <span class="k">do</span> <span class="n">server</span><span class="o">.</span><span class="n">shutdown</span> <span class="k">end</span>
+
+<span class="nb">puts</span> <span class="s2">&quot;Server running in port 8080...&quot;</span>
+<span class="n">server</span><span class="o">.</span><span class="n">start</span>
+</pre></div>
+
+
+<h2>Issues</h2>
+<p>If you have issues with the extension, you can report them below or at <a href="https://github.com/tomimick/chrome-ext-save-css/issues?sort=created&amp;direction=desc&amp;state=open">GitHub</a>.</p>
+<p>Update: The Python script added extra line feeds on Windows. Fixed.</p>
+
+    <p class="author">&mdash; Tomi Mickelsson</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'tomicloud'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <div id="footer">
+
+
+
+    <p>
+    <a class="icon" href="http://twitter.com/tomimickelsson"><span id="icotwitter">&nbsp;</span> twitter</a> |
+    <a class="icon" href="mailto:tomi.mickelsson@iki.fi"><span id="icoenve">&nbsp;</span> tomi.mickelsson@iki.fi</a>
+
+    </p>
+
+    <p>&copy; 2015 Tomi Mickelsson</p>
+
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+}
+
+    
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    
+    <script src="/static/main.js"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        MAIN.main();
+    });
+</script>
+
+
+
+
+
+
+
+
+
+</html>
+

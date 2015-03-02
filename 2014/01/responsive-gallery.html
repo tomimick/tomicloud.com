@@ -1,0 +1,592 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Responsive HTML5 image gallery tutorial - Tomi's Blog</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+    <meta name="description" content="Home of Tomi Mickelsson and blog about tech"/>
+
+
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes" name="viewport" />
+
+
+    <link rel="shortcut icon" href="/static/favicon.ico" />
+
+    <link rel="apple-touch-icon" type="image/png" href="/static/applehome-tomi.png" />
+
+
+    <link rel="stylesheet" href="/static/main.css" type="text/css" />
+    <link rel="stylesheet" href="/static/pastie.css" type="text/css" />
+
+    <link rel="stylesheet" href="/static/mobile.css" type="text/css" />
+
+    <link rel="stylesheet" href="/static/full.css" type="text/css" />
+
+
+
+<!--[if lte IE 8]>
+    <link rel="stylesheet" type="text/css" href="/static/ie.css"/>
+<![endif]-->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30210642-1']);
+  _gaq.push(['_setDomainName', 'tomicloud.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+    </head>
+    <body>
+
+    <div id="header">
+        
+
+
+        <a id="logo" title="Home" href="/">&nbsp;</a>
+        <p>Tomi's blog about tech</p>
+
+
+        <div class="nav">
+            <a href="/" class="icon " >
+                <span id="icohome">&nbsp;</span>Blog</a>
+            <a href="/work" class="icon ">
+                <span id="icowork">&nbsp;</span>Work</a>
+            <a href="/about" class="icon ">
+                <span id="icoabout">&nbsp;</span>About</a>
+        </div>
+    </div>
+
+    <div id="sidebar">
+        <div>
+
+            <p class="mypic">
+
+
+            <img src="/static/tomimickelsson.png" title="Tomi Mickelsson" />
+            </p>
+
+            <p class="colorize">
+            Tomi is a software engineer working as a freelance consultant in
+            <span>HTML5</span> and <span>mobile</span> projects.
+
+
+
+
+
+            </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><a class="icon" href="http://twitter.com/tomimickelsson">
+    <span id="icotwitter">&nbsp;</span> twitter</a></p>
+<p><a class="icon" href="mailto:tomi.mickelsson@iki.fi">
+    <span id="icoenve">&nbsp;</span> tomi.mickelsson@iki.fi</a></p>
+
+
+
+
+
+            <h3>Blog Posts</h3>
+            
+            <p class="plink"><a class="sel"
+        >Responsive HTML5 image gallery tutorial</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2013/11/mapcolorizer" >Mapcolorizer.js: Choropleth maps with Leaflet</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2013/01/js-jquery-boilerplates" >My favorite Javascript + jQuery boilerplates</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/11/screenshot-fetcher" >Android &amp; iOS screenshot fetcher</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/07/viewsrc-chrome-ext" >Quick source viewer - Chrome extension</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/04/save-css-chrome-ext" >Save CSS - Chrome extension makes you fly</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/03/multi-touch-demo" >Multi-touch events playground</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/02/django-sqlite" >Django, SQLite and writes</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/02/tech-stack" >Tech stack of my blog</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/02/hello-world" >Hello World!</a></p>
+            
+
+
+
+
+
+        </div>
+
+        
+
+
+       
+
+    </div>
+
+    <div id="page">
+        
+
+
+
+
+
+
+<div class="post">
+    <h1>Responsive HTML5 image gallery tutorial</h1>
+
+    
+
+    <div class="date">Jan 16, 2014
+    </div>
+
+    
+
+    <p><img src="/static/responsive-gallery.png" class="title" /></p>
+<p>Native or HTML5/hybrid app? The debate is on and most likely won't end up
+anytime soon. Both native and HTML5 technologies evolve at a rapid pace, and
+both have their pros and cons. I could chat about native vs HTML but instead
+went on to code, to experiment how far it is possible to <code>push HTML5 to
+provide a native alike user experience</code>. The image gallery is a simple sample
+app that I came up with. This blog briefly explains the building blocks of the
+app.</p>
+<p><a class="big demo" href="http://tomimick.github.io/responsive-image-gallery/">Demo</a>
+<a class="big src" 
+href="https://github.com/tomimick/responsive-image-gallery">Sources</a></p>
+<p>Note that images are fetched from the public <a href="http://api.flickr.com/services/feeds/photos_public.gne?format=json">Flickr feed</a>. It's their fault if
+you see something odd... And I did not yet test Internet Explorer; IE9 is
+minimum.</p>
+<h2>Features</h2>
+<p>The gallery app is a simple but yet "complete" to function as a tutorial HTML5
+application. The app has the following features:</p>
+<ul>
+<li>3 sections: Main gallery, Favorites and About.</li>
+<li>Fetch images from Flickr.</li>
+<li>Search images with tags.</li>
+<li>Carousel component: zoom the image and swipe between images.</li>
+<li>Favorites: images can be favorited; the list of favorites is remembered.</li>
+<li>Menu drawer component for small screens. Very typical component in both
+  native and HTML5 mobile apps, sliding in from left of screen.</li>
+</ul>
+<h2>Building blocks</h2>
+<p>The tutorial gallery app demonstrates the following technical building blocks
+that are essential for modern HTML5 mobile apps:</p>
+<ul>
+<li>Responsivity: adjust layout and behaviour</li>
+<li>Touch event handling</li>
+<li>Fastclicks without 300ms click delay</li>
+<li>CSS3 accelerations</li>
+<li>SPA architecture</li>
+<li>Scalable graphics via icon font</li>
+<li>Client side local storage</li>
+</ul>
+<p>The app has the following external library dependencies:</p>
+<ul>
+<li><a href="http://jquery.com/">jQuery</a></li>
+<li><a href="http://modernizr.com/">Modernizer</a></li>
+<li><a href="https://github.com/ftlabs/fastclick">Fastclick</a></li>
+<li><a href="http://eightmedia.github.io/hammer.js/">Hammer.js</a></li>
+<li><a href="http://fontawesome.io/">Font Awesome</a></li>
+</ul>
+<p>There is only 1 HTML, 1 CSS and 1 JS file in the app (plus above external files).</p>
+<h2>Responsivity</h2>
+<p><img src="/static/resp-2layouts.png" class="r w50" /></p>
+<p>The gallery app is a responsive web app: by using <code>CSS media queries</code> it
+adapts its layout and behaviour according to the device; adapting from mobile
+to desktop. It has <code>2 main layouts</code>: a small screen layout and a bigger screen
+layout.</p>
+<p>In the small screen layout, the header only shows the current section name. A
+horizontally sliding menu drawer can be opened on demand which lists the
+all 3 sections of the app.</p>
+<p>In the large screen layout, the header shows all 3 tabs and the menu drawer is
+disabled.</p>
+<p>In addition to 2 main layouts, <code>the number of image tiles changes from 3 to 8</code>
+according to viewport size.  Try resizing your browser.</p>
+<p>Small screen kicks in under width of 550px, and can be seen on most smart
+phones in portrait mode. Turning phone into landscape activates large screen.
+(Atleast in Galaxy S3 and iPhones.)</p>
+<p>But <code>responsivity is not only about layout changes; in my opinion it is also
+about adapting the behavior</code> of the app, see touch events next.</p>
+<h2>Touch events</h2>
+<p>In a typical mobile gallery application, it is expected that the images can be
+swiped left and right with a finger. A gallery app with no swipe lets the user
+down and just doesn't feel right.</p>
+<p>In the tutorial app, finger swipe is properly implemented with the help of
+<a href="http://eightmedia.github.io/hammer.js/">hammer.js</a> library that provides touch gesture events for the app. It would
+have been possible to capture events <code>touchstart/touchmove/touchend</code> on my own,
+but hammer.js nicely hides away the nasty browser differences and provides a
+higher level gesture abstraction. Recommended for mobile projects. The carousel code was taken from the good Hammer.js demo.</p>
+<p>And since there is no pointer, touch browsers do not really have a <code>:hover</code>
+pseudostyle. Instead, they simulate :hover by activating it just before the
+click. This sudden hover effect can lead to unexpected visualization. Hence it
+is usually better to disable the :hover style on touch devices. In the app,
+the image title is thus only visible in the :hover style in the desktop.</p>
+<p>To detect touch capability, I'm using <a href="http://modernizr.com/">Modernizer</a> library which attaches the
+class <code>"touch"</code> to html if touch capability is detected. In CSS, I can then
+easily enable or disable CSS styles on touch/desktop browser like this:</p>
+<div class="codehilite"><pre><span class="c">/* enable transition on desktop */</span>
+<span class="nt">html</span><span class="nd">:not</span><span class="o">(</span><span class="nc">.touch</span><span class="o">)</span> <span class="nt">div</span><span class="nc">.my</span><span class="nd">:hover</span> <span class="p">{</span>
+    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transform</span><span class="o">:</span> <span class="n">scale</span><span class="p">(</span><span class="m">1</span><span class="o">.</span><span class="m">1</span><span class="o">,</span><span class="m">1</span><span class="o">.</span><span class="m">1</span><span class="p">);</span>
+    <span class="k">z-index</span><span class="o">:</span> <span class="m">30</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c">/* just opacity on mobile */</span>
+<span class="nt">html</span><span class="nc">.touch</span> <span class="nt">div</span><span class="nc">.my</span><span class="nd">:active</span> <span class="p">{</span>
+    <span class="k">opacity</span><span class="o">:</span> <span class="m">0</span><span class="o">.</span><span class="m">7</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Swipe gesture is essential in mobile but it has also become common in desktop.
+Since Hammer.js provides the swipe event also on desktop, I'm not disabling it
+in the demo either.</p>
+<h2>Fast clicks</h2>
+<p>Speed is essential in good user experiences; all kinds of delays annoy the
+user. The infamous <a href="https://developers.google.com/mobile/articles/fast_buttons">300ms click delay</a> in mobile surfing is a nuicance that is
+just recently getting properly addressed.
+<a href="http://updates.html5rocks.com/2013/12/300ms-tap-delay-gone-away">Chrome 32 on Android has no click delay</a>
+if <code>width=device-width</code> is specified in meta data.
+Internet Explorer has <a href="http://msdn.microsoft.com/en-us/library/Windows/Apps/hh767313.aspx">touch-action property</a>. Other vendors follow suit.</p>
+<p>You can <a href="http://ftlabs.github.io/fastclick/examples/layer.html">verify the click delay</a> yourself. (Chrome 32 on Android: no click delay anymore.)</p>
+<p>Before the browsers natively support fast clicks, we can get rid of the delay
+with the help of Javascript. <a href="https://github.com/ftlabs/fastclick">FastClick</a> is a library that enables fast
+clicks. It is very simple to use - a single line of Javascript will do:</p>
+<div class="codehilite"><pre><span class="nx">FastClick</span><span class="p">.</span><span class="nx">attach</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+</pre></div>
+
+
+<p>By using event delegation, this single event handler attached to the document
+body fastens clicks anywhere in the page. Magic!</p>
+<p>In addition to fast clicks, always provide <a href="http://www.mobify.com/blog/beginners-guide-to-perceived-performance/">instant feedback</a> for the
+clicked element! Lack of feedback is bad. You get really simple feedback by
+just writing a pseudo style <code>:active</code> that is activated on element click.
+This guide applies to both mobile and desktop browsers. A typical <code>:active</code>
+style is to press down the element a few pixels. I typically use something like
+this:</p>
+<div class="codehilite"><pre><span class="c">/* enable pressed down effect on click */</span>
+<span class="nt">a</span><span class="nc">.ico</span><span class="nd">:active</span><span class="o">,</span> <span class="nt">ul</span><span class="nc">.menu</span> <span class="nt">a</span><span class="nd">:active</span> <span class="p">{</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>
+    <span class="k">top</span><span class="o">:</span> <span class="m">2px</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>What is nice is that the :active style is instant also even without the
+Fastclick library!</p>
+<h2>CSS3 accelerations</h2>
+<p><img src="/static/resp-devtools-waterfall.jpg" class="r w50" /></p>
+<p>CSS3 accelerations have hit mainstream in web design a while ago but they
+still have mysticism around them and it's not quite clear how and to what extent
+ they should be
+applied. We are experimenting and learning.
+Web developers have understood that <code>animating CSS properties with
+Javascript is a no-no</code> performance wise, but what is not widely known is the
+fact that even though you are using CSS transitions or CSS animations,
+browsers can currently <a href="http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/">accelerate only some of the CSS properties fast</a>:
+<code>transform and opacity.</code> Yes, even common properties <code>left</code> and <code>top</code> are slower to animate.</p>
+<p>Accelerations are just hard to implement in browsers and we'll have to wait for
+browsers to mature. In addition, the current CSS animation model is
+suboptimal and improvements are being specified in the 
+<a href="http://dev.w3.org/fxtf/web-animations/">web-animations working group</a>.<br />
+To conclude: CSS3
+accelerations are somewhat quirky but kind of essential. Use with care.</p>
+<p>To achieve silky smooth acceleration in the app at present day, I'm
+<code>accelerating only the fast properties "transform and opacity".</code> Acceleration
+takes place in many places of the app: for the menu drawer, search input, image hover, image reload and the carousel.</p>
+<p>Although there is no lack of menu drawer components in the wild, most of them
+do not have the best performance.  To mention a few good and featureful menu
+drawer components that do acceleration right, check out <a href="https://github.com/jakiestfu/Snap.js">Snap.js</a> and <a href="http://www.roblukedesign.com/trunk/trunk.html">Trunk.js</a>.</p>
+<p>However, a basic properly accelerated horizontal menu drawer is not hard to
+do. For learning purposes, I implemented one myself in this tutorial app.
+Here's the basic CSS:</p>
+<div class="codehilite"><pre><span class="c">/* menu drawer is initially hidden outside screen */</span>
+<span class="nf">#menu</span> <span class="p">{</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">fixed</span><span class="p">;</span>
+    <span class="k">left</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span> <span class="k">top</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">40</span><span class="o">%</span><span class="p">;</span> <span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">background</span><span class="o">:</span> <span class="m">#333</span><span class="p">;</span>
+    <span class="k">z-index</span><span class="o">:</span> <span class="m">20</span><span class="p">;</span>
+
+    <span class="k">overflow-y</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
+    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="k">overflow</span><span class="o">-</span><span class="k">scroll</span><span class="o">:</span> <span class="n">touch</span><span class="p">;</span> <span class="c">/* smooth scrolling on mobile */</span>
+
+    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transition</span><span class="o">:</span> <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transform</span> <span class="m">0.2s</span> <span class="n">ease</span><span class="o">-</span><span class="n">in</span><span class="p">;</span>
+    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transform</span><span class="o">:</span> <span class="n">translate3d</span><span class="p">(</span><span class="m">-100</span><span class="o">%,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="p">);</span> <span class="c">/* hide initially */</span>
+<span class="p">}</span>
+<span class="c">/* adding a class slides menu in from left */</span>
+<span class="nf">#menu</span><span class="nc">.openmenu</span> <span class="p">{</span>
+    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transform</span><span class="o">:</span> <span class="n">translate3d</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Since CSS3 accelerations are hard to implement and optimize in browsers, there
+are differences between browsers and platforms. It is important to test
+acceleration on each platform. Sometimes the right call is to disable the
+acceleration.</p>
+<h2>SPA - Single Page App</h2>
+<p><a href="http://en.wikipedia.org/wiki/Single-page_application">SPA</a> is a basic well
+known construction by now: you load a page once and then maintain the state
+and layout completely in the client. AJAX is used to fetch more resources from
+servers.</p>
+<p>SPA is about speed too. The user experience is a lot better if you can
+instantly switch pages and not load them from the server. Only SPAs can
+function as offline/hybrid apps where there might exist no server. SPA's are
+definately stuff of future.</p>
+<p>Most Javascript frameworks implement SPA and page routing. However, if you
+want to stay lean and survive without a framework, you can take the simple
+approach that I took in this app. Just rely on the old fateful <code>hashchange</code>
+event which is supported by <a href="http://caniuse.com/#search=hashchange">every browser</a>. It's simple as this:</p>
+<div class="codehilite"><pre><span class="c1">// handler for hash change</span>
+<span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;hashchange&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">route_url</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="c1">// based on url hash, adjust layout and do stuff</span>
+<span class="kd">function</span> <span class="nx">route_url</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">hash</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">hash</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">hash</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// home</span>
+        <span class="nx">images</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
+        <span class="nx">about</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
+        <span class="nx">favorites</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">hash</span> <span class="o">==</span> <span class="s2">&quot;#about&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// about</span>
+        <span class="nx">images</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
+        <span class="nx">about</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
+        <span class="nx">favorites</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">hash</span> <span class="o">==</span> <span class="s2">&quot;#favorites&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// favorites</span>
+        <span class="nx">images</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
+        <span class="nx">about</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
+        <span class="nx">favorites</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="c1">// and so on...</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>When the URL gets changed either via regular anchors <code>&lt;a
+href="#about"&gt;About&lt;/a&gt;</code> or javascript <code>window.location.hash = "#about";</code>  the
+event handler gets called.  Browser back/forward works as expected. Voila.</p>
+<p>The tricky bit is to decide what is considered to be a state/hash change and
+what is not. Think this via browser back; when is an operation to be
+considered such a large that back should rewind it? For example, while swiping
+images, does back take you to the previous image or back to the main screen?</p>
+<h2>Icon font</h2>
+<p><img src="/static/resp-iconfont.png" class="r w50" /></p>
+<p>Since the advent of retina screens and explosion in the number of different
+screen sizes, it has become increasingly difficult to deal with raster images
+in many sizes. <code>To rescue comes SVG and icon fonts with scalable vector icons!</code>
+(Also flat-design trend drives the use of icon fonts.)</p>
+<p>One of the most popular icon font currently is
+<a href="http://fontawesome.io/">Font Awesome</a> with its 369 icons. This font is
+used in the app.</p>
+<p>To minimize the amount of CSS, I only copied the needed stuff from Font Awesome. A bare minimum of
+CSS to have a single search icon from Font Awesome is just:</p>
+<div class="codehilite"><pre><span class="k">@font-face</span> <span class="p">{</span>
+    <span class="nt">font-family</span><span class="o">:</span> <span class="s1">&#39;FontAwesome&#39;</span><span class="o">;</span>
+    <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s1">&#39;../fonts/fontawesome-webfont.eot?v=4.0.3&#39;</span><span class="o">);</span>
+    <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s1">&#39;../fonts/fontawesome-webfont.eot?#iefix&amp;v=4.0.3&#39;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s1">&#39;embedded-opentype&#39;</span><span class="o">),</span> <span class="nt">url</span><span class="o">(</span><span class="s1">&#39;../fonts/fontawesome-webfont.woff?v=4.0.3&#39;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s1">&#39;woff&#39;</span><span class="o">),</span> <span class="nt">url</span><span class="o">(</span><span class="s1">&#39;../fonts/fontawesome-webfont.ttf?v=4.0.3&#39;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s1">&#39;truetype&#39;</span><span class="o">),</span> <span class="nt">url</span><span class="o">(</span><span class="s1">&#39;../fonts/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular&#39;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s1">&#39;svg&#39;</span><span class="o">);</span>
+    <span class="nt">font-weight</span><span class="o">:</span> <span class="nt">normal</span><span class="o">;</span>
+    <span class="nt">font-style</span><span class="o">:</span> <span class="nt">normal</span><span class="o">;</span>
+<span class="p">}</span>
+
+<span class="nc">.fa</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
+    <span class="k">font-family</span><span class="o">:</span> <span class="n">FontAwesome</span><span class="p">;</span>
+    <span class="k">font-style</span><span class="o">:</span> <span class="k">normal</span><span class="p">;</span>
+    <span class="k">font-weight</span><span class="o">:</span> <span class="k">normal</span><span class="p">;</span>
+    <span class="k">line-height</span><span class="o">:</span> <span class="m">1</span><span class="p">;</span>
+    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="k">font</span><span class="o">-</span><span class="n">smoothing</span><span class="o">:</span> <span class="n">antialiased</span><span class="p">;</span>
+    <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">osx</span><span class="o">-</span><span class="k">font</span><span class="o">-</span><span class="n">smoothing</span><span class="o">:</span> <span class="n">grayscale</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.fa-search</span><span class="nd">:before</span> <span class="p">{</span>
+    <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;\f002&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>The icon is used in HTML like this:</p>
+<div class="codehilite"><pre><span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">&quot;fa fa-search&quot;</span><span class="nt">&gt;&lt;/i&gt;</span>
+</pre></div>
+
+
+<h2>Local storage</h2>
+<p>Browser local storage offers a simple way to store data on the client side. In
+the app I store an array of favorited images (an array of objects containing
+"title" and "url").</p>
+<p>Local storage only accepts key/value pairs of strings. With little help from
+JSON, a builtin library of browsers, we can store any object:</p>
+<div class="codehilite"><pre><span class="c1">// store an object into localstorage</span>
+<span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s2">&quot;imgdata&quot;</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+
+<span class="c1">// read an object from localstorage</span>
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s2">&quot;imgdata&quot;</span><span class="p">)</span> <span class="o">||</span> <span class="s2">&quot;[]&quot;</span><span class="p">);</span>
+</pre></div>
+
+
+<h2>TODO</h2>
+<p>Since I tried to keep the size of the code at minimum, I have left out a few
+improvements:</p>
+<ul>
+<li>Portrait images. Currently portrait images overflow and are not properly
+  fitted in screen.</li>
+<li>Support for full-size images. Currently only the thumbnail being displayed.</li>
+<li>No zoom for images since user-scalable=no in meta. Allow user scalability?
+  Does it break layout?</li>
+<li>Use <a href="https://github.com/ai/autoprefixer">Autoprefixer</a> or <a href="http://www.lesscss.org/">LESS</a> for handling CSS vendor prefixes. A must
+  have in bigger projects.</li>
+<li>Improved responsivity: have search bar in the header when screen wide
+  enough, for example.</li>
+<li>Develop a similar native Android app; compare effort and result...</li>
+<li>Develop a similar native iPhone app; compare effort and result...</li>
+<li>Test with Internet Explorer.</li>
+</ul>
+<h2>Phonegap</h2>
+<p>To complete this tutorial, I'll soon wrap up the app with <a href="http://phonegap.com/">Phonegap</a> and
+provide the wrapping in the <code>Android Play store.</code> In theory it is the same HTML5
+app that just runs in an embedded browser control, but the browser engine is most likely different, atleast on Android.</p>
+<p>Stay tuned.</p>
+
+    <p class="author">&mdash; Tomi Mickelsson</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'tomicloud'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <div id="footer">
+
+
+
+    <p>
+    <a class="icon" href="http://twitter.com/tomimickelsson"><span id="icotwitter">&nbsp;</span> twitter</a> |
+    <a class="icon" href="mailto:tomi.mickelsson@iki.fi"><span id="icoenve">&nbsp;</span> tomi.mickelsson@iki.fi</a>
+
+    </p>
+
+    <p>&copy; 2015 Tomi Mickelsson</p>
+
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+}
+
+    
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    
+    <script src="/static/main.js"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        MAIN.main();
+    });
+</script>
+
+
+
+
+
+
+
+
+
+</html>
+

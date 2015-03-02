@@ -1,0 +1,634 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Multi-touch events playground - Tomi's Blog</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+    <meta name="description" content="Home of Tomi Mickelsson and blog about tech"/>
+
+
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes" name="viewport" />
+
+
+    <link rel="shortcut icon" href="/static/favicon.ico" />
+
+    <link rel="apple-touch-icon" type="image/png" href="/static/applehome-tomi.png" />
+
+
+    <link rel="stylesheet" href="/static/main.css" type="text/css" />
+    <link rel="stylesheet" href="/static/pastie.css" type="text/css" />
+
+    <link rel="stylesheet" href="/static/mobile.css" type="text/css" />
+
+    <link rel="stylesheet" href="/static/full.css" type="text/css" />
+
+
+
+<!--[if lte IE 8]>
+    <link rel="stylesheet" type="text/css" href="/static/ie.css"/>
+<![endif]-->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30210642-1']);
+  _gaq.push(['_setDomainName', 'tomicloud.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+    </head>
+    <body>
+
+    <div id="header">
+        
+
+
+        <a id="logo" title="Home" href="/">&nbsp;</a>
+        <p>Tomi's blog about tech</p>
+
+
+        <div class="nav">
+            <a href="/" class="icon " >
+                <span id="icohome">&nbsp;</span>Blog</a>
+            <a href="/work" class="icon ">
+                <span id="icowork">&nbsp;</span>Work</a>
+            <a href="/about" class="icon ">
+                <span id="icoabout">&nbsp;</span>About</a>
+        </div>
+    </div>
+
+    <div id="sidebar">
+        <div>
+
+            <p class="mypic">
+
+
+            <img src="/static/tomimickelsson.png" title="Tomi Mickelsson" />
+            </p>
+
+            <p class="colorize">
+            Tomi is a software engineer working as a freelance consultant in
+            <span>HTML5</span> and <span>mobile</span> projects.
+
+
+
+
+
+            </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><a class="icon" href="http://twitter.com/tomimickelsson">
+    <span id="icotwitter">&nbsp;</span> twitter</a></p>
+<p><a class="icon" href="mailto:tomi.mickelsson@iki.fi">
+    <span id="icoenve">&nbsp;</span> tomi.mickelsson@iki.fi</a></p>
+
+
+
+
+
+            <h3>Blog Posts</h3>
+            
+            <p class="plink"><a class=""
+         href="/2014/01/responsive-gallery" >Responsive HTML5 image gallery tutorial</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2013/11/mapcolorizer" >Mapcolorizer.js: Choropleth maps with Leaflet</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2013/01/js-jquery-boilerplates" >My favorite Javascript + jQuery boilerplates</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/11/screenshot-fetcher" >Android &amp; iOS screenshot fetcher</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/07/viewsrc-chrome-ext" >Quick source viewer - Chrome extension</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/04/save-css-chrome-ext" >Save CSS - Chrome extension makes you fly</a></p>
+            
+            <p class="plink"><a class="sel"
+        >Multi-touch events playground</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/02/django-sqlite" >Django, SQLite and writes</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/02/tech-stack" >Tech stack of my blog</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/02/hello-world" >Hello World!</a></p>
+            
+
+
+
+
+
+        </div>
+
+        
+
+
+       
+
+    </div>
+
+    <div id="page">
+        
+
+
+
+<!-- style for this post -->
+<style>
+#area { height: 400px; width: 76%; background: #000; position: relative;
+  margin-bottom: 10px;}
+#eve,#evlist { font-size: 75%; font-family: monospace; border: 1px solid #aaf;
+  padding: 3px; background: #eef; margin-bottom: 10px; }
+#eve >p { white-space: nowrap; line-height: 9px; }
+#eve { float: right; width: 22%; min-height: 400px; }
+.finger { position: absolute;
+     -webkit-user-select: none; -moz-user-select: none;
+     width: 40px; height: 40px; border: 2px solid #fff; }
+#evlist { min-height: 100px; width: 75%; }
+
+</style>
+
+
+
+<!-- script for this post -->
+<script type="text/javascript">
+function postinit() {
+    // div for touch events
+    var area = $("#area");
+
+    // mouse events
+    area.bind("mousedown", function(e) {
+        dumpEvent(e);
+        var id = 1;
+        createDiv(id);
+        moveBox(id, e);
+    })
+    .bind("mousemove", function(e) {
+        dumpEvent(e);
+        moveBox(1, e);
+    })
+    .bind("mouseup", function(e) {
+        dumpEvent(e);
+        delDiv(1);
+    })
+    .bind("click", function(e) {
+        dumpEvent(e);
+    });
+
+    // touch events
+    area.bind("touchstart", function(e) {
+        dumpEvent(e);
+
+        forEachChangedFinger(e, function(e2, id) {
+            createDiv(id);
+            moveBox(id, e2);
+        });
+    })
+    .bind("touchmove", function(e) {
+        dumpEvent(e);
+        e.preventDefault(); // prevent page scroll
+
+        forEachChangedFinger(e, function(e2, id) {
+            moveBox(id, e2);
+        });
+    })
+    .bind("touchend", function(e) {
+        dumpEvent(e);
+
+        forEachChangedFinger(e, function(e2, id) {
+            delDiv(id);
+        });
+    })
+    .bind("touchcancel", function(e) {
+        dumpEvent(e);
+        $("#area").empty();
+    });
+/*
+    // gesture events
+    area.bind("gesturestart", function(e) {
+        dumpEvent(e);
+    });
+    area.bind("gesturechange", function(e) {
+        dumpEvent(e);
+    });
+    area.bind("gestureend", function(e) {
+        dumpEvent(e);
+    });
+*/
+    // clear event name list
+    $("#evlist").on("click", function(){
+        $(this).empty();
+    });
+}
+
+// extract each finger data from list, call callback
+function forEachChangedFinger(e, cb) {
+    if (e.originalEvent)
+        e = e.originalEvent;
+
+    for (var i = 0; i < e.changedTouches.length; i++) {
+        var finger = e.changedTouches[i];
+        var id = finger.identifier;
+        cb(finger, id);
+    }
+}
+
+function createDiv(id) {
+    var colors = ["red","blue", "green", "orange", "gray", "purple"];
+    var area = $("#area");
+    var count = area.find("div").length;
+    var div = $("<div class='finger'>"+count+"</div>");
+    area.append(div);
+    div.css("background", colors[count%colors.length]);
+    div.attr("id", id);
+
+    $("#count").text(count+1);
+}
+function delDiv(id) {
+    $("#"+id).remove();
+
+    var count = $("#area").find("div").length;
+    $("#count").text(count);
+}
+// move box on screen
+function moveBox(id, e) {
+    var div = $("#"+id);
+    var off = $("#area").offset();
+    var x = e.pageX - off.left - 35;
+    var y = e.pageY - off.top - 35;
+    div.css({"left":x, "top":y});
+}
+
+// print properties of the event object
+function dumpEvent(e) {
+    // get hold of orig event
+    if (e.originalEvent)
+        e = e.originalEvent;
+
+    var txt = [];
+    for (var p in e) {
+        // ignore constants
+        if (p == p.toUpperCase())
+            continue;
+
+        var val = e[p];
+
+        // do not dump functions
+		if($.isFunction(val))
+            val = "func()";
+        txt.push(p+" = "+val);
+    }
+    var s = txt.join("<br/>");
+    $("#eprop").html(s);
+    $("#ename").html(e.type);
+
+    // print event name
+    if (lastevename != e.type) {
+        $("#evlist").append("<span>"+e.type+" </span>");
+        lastevecount = 1;
+    } else {
+        lastevecount += 1;
+        $("#evlist >span").last().replaceWith("<span>"+e.type+lastevecount+" </span>");
+    }
+    lastevename = e.type;
+}
+var lastevename = "";
+var lastevecount = 1;
+
+
+</script>
+
+
+<div class="post">
+    <h1>Multi-touch events playground</h1>
+
+    
+
+    <div class="date">Mar 25, 2012
+    </div>
+
+    
+
+    <p><img src="/static/multitouch.png" class="title" /></p>
+<p>Here's a piece of my Javascript code that I use from time to time when I
+develop apps that deploy touch events and wonder what's going on behind the curtains.</p>
+<p>The code tracks all the mouse and touch events and displays the data about them. It has
+helped me to see the flow of events and understand the internals of touch
+data. Maybe the code provides some assistance for you too in learning or
+debugging the touch events. Enjoy.</p>
+<h2>Demo</h2>
+<p>Just view this blog post on your tablet or touch enabled device and track your
+fingers below.</p>
+<p>Note that on iPad, you need to <code>disable "Multitasking Gestures"</code> in the General Settings because otherwise the system captures events with 4 and 5 fingers!</p>
+<p id="fingers"><b>Finger count: <span id="count"></span></b></p>
+
+<div id="eve">
+<p id="ename"></p>
+<p id="eprop"></p>
+</div>
+
+<div id="area"></div>
+
+<div id="evlist"></div>
+
+<p>Clear the list of printed event names above by clicking on the box.</p>
+<h2>How many fingers?</h2>
+<p>How many fingers can be simultaneously tracked by a device? I get these
+results with my devices:</p>
+<ul>
+<li>Retina iPad (iOS 5.1): 11 fingers can be detected. (My wife provided the extra fingers, no toes required ;)</li>
+<li>iPod Touch (iOS 5.1): 5 fingers.</li>
+<li>iPod Touch (iOS 2.2): 5 fingers too.</li>
+<li>HTC Desire (Android 2.2): only 1 finger.</li>
+</ul>
+<p>When the number of fingers exceed the maximum, a <code>touchcancel</code> event is received.</p>
+<h2>Source code</h2>
+<p>Below is the source code for this demo. The code should be pretty much
+self-documenting. For each touch event, the finger data in the array
+<code>event.changedTouches[]</code> is inspected. All the properties of an event object are enumerated and printed on screen.</p>
+<p>The touch events are documented for example by Apple in <a href="http://developer.apple.com/library/ios/#DOCUMENTATION/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html">Safari Web Guide</a>.</p>
+<p>Enable the gesture events if you want to see them too. I've disabled them in
+the demo since they flood the event name box.</p>
+<div class="codehilite"><pre><span class="c1">// black div for touch events</span>
+<span class="kd">var</span> <span class="nx">area</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#area&quot;</span><span class="p">);</span>
+
+<span class="c1">// mouse events</span>
+<span class="nx">area</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;mousedown&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">dumpEvent</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nx">createDiv</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+    <span class="nx">moveBox</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">e</span><span class="p">);</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;mousemove&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">dumpEvent</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+    <span class="nx">moveBox</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">e</span><span class="p">);</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;mouseup&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">dumpEvent</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+    <span class="nx">delDiv</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">dumpEvent</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// touch events</span>
+<span class="nx">area</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;touchstart&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">dumpEvent</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+
+    <span class="nx">forEachChangedFinger</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e2</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">createDiv</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+        <span class="nx">moveBox</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">e2</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;touchmove&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">dumpEvent</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+    <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span> <span class="c1">// prevent page scroll</span>
+
+    <span class="nx">forEachChangedFinger</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e2</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">moveBox</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">e2</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;touchend&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">dumpEvent</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+
+    <span class="nx">forEachChangedFinger</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e2</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">delDiv</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;touchcancel&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">dumpEvent</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#area&quot;</span><span class="p">).</span><span class="nx">empty</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="cm">/* disabled because flood of events</span>
+
+<span class="cm">// gesture events</span>
+<span class="cm">area.bind(&quot;gesturestart&quot;, function(e) {</span>
+<span class="cm">    dumpEvent(e);</span>
+<span class="cm">});</span>
+<span class="cm">area.bind(&quot;gesturechange&quot;, function(e) {</span>
+<span class="cm">    dumpEvent(e);</span>
+<span class="cm">});</span>
+<span class="cm">area.bind(&quot;gestureend&quot;, function(e) {</span>
+<span class="cm">    dumpEvent(e);</span>
+<span class="cm">});</span>
+<span class="cm">*/</span>
+
+<span class="c1">// clear event name list</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#evlist&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">empty</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="c1">// extract each finger data from list, call callback</span>
+<span class="kd">function</span> <span class="nx">forEachChangedFinger</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="nx">cb</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">e</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">originalEvent</span><span class="p">;</span>
+
+    <span class="c1">// e.changedTouches is a list of finger events that were changed</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">changedTouches</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">finger</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">changedTouches</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+        <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">finger</span><span class="p">.</span><span class="nx">identifier</span><span class="p">;</span>
+        <span class="nx">cb</span><span class="p">(</span><span class="nx">finger</span><span class="p">,</span> <span class="nx">id</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">createDiv</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="s2">&quot;purple&quot;</span><span class="p">];</span>
+    <span class="kd">var</span> <span class="nx">area</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#area&quot;</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="nx">area</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">div</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;div class=&#39;finger&#39;&gt;&quot;</span><span class="o">+</span><span class="nx">count</span><span class="o">+</span><span class="s2">&quot;&lt;/div&gt;&quot;</span><span class="p">);</span>
+    <span class="nx">area</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">div</span><span class="p">);</span>
+    <span class="nx">div</span><span class="p">.</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;background&quot;</span><span class="p">,</span> <span class="nx">colors</span><span class="p">[</span><span class="nx">count</span><span class="o">%</span><span class="nx">colors</span><span class="p">.</span><span class="nx">length</span><span class="p">]);</span>
+    <span class="nx">div</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="nx">id</span><span class="p">);</span>
+
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#count&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">count</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">delDiv</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="o">+</span><span class="nx">id</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>
+
+    <span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#area&quot;</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#count&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// move box on screen</span>
+<span class="kd">function</span> <span class="nx">moveBox</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">div</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="o">+</span><span class="nx">id</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">off</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#area&quot;</span><span class="p">).</span><span class="nx">offset</span><span class="p">();</span>
+    <span class="c1">// offset box a little so it can be seen under a finger!</span>
+    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">pageX</span> <span class="o">-</span> <span class="nx">off</span><span class="p">.</span><span class="nx">left</span> <span class="o">-</span> <span class="mi">35</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">pageY</span> <span class="o">-</span> <span class="nx">off</span><span class="p">.</span><span class="nx">top</span> <span class="o">-</span> <span class="mi">35</span><span class="p">;</span>
+    <span class="nx">div</span><span class="p">.</span><span class="nx">css</span><span class="p">({</span><span class="s2">&quot;left&quot;</span><span class="o">:</span><span class="nx">x</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="o">:</span><span class="nx">y</span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="c1">// print properties of the event object</span>
+<span class="kd">function</span> <span class="nx">dumpEvent</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// get hold of orig event in jQuery</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">originalEvent</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">e</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">originalEvent</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">var</span> <span class="nx">txt</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">p</span> <span class="k">in</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// ignore constants</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">p</span> <span class="o">==</span> <span class="nx">p</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">())</span>
+            <span class="k">continue</span><span class="p">;</span>
+
+        <span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">e</span><span class="p">[</span><span class="nx">p</span><span class="p">];</span>
+
+        <span class="c1">// do not dump functions</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">$</span><span class="p">.</span><span class="nx">isFunction</span><span class="p">(</span><span class="nx">val</span><span class="p">))</span>
+            <span class="nx">val</span> <span class="o">=</span> <span class="s2">&quot;func()&quot;</span><span class="p">;</span>
+        <span class="nx">txt</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">p</span><span class="o">+</span><span class="s2">&quot; = &quot;</span><span class="o">+</span><span class="nx">val</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nx">txt</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;&lt;br/&gt;&quot;</span><span class="p">);</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#eprop&quot;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#ename&quot;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">type</span><span class="p">);</span>
+
+    <span class="c1">// print event name</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">lastevename</span> <span class="o">!=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#evlist&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;&lt;span&gt;&quot;</span><span class="o">+</span><span class="nx">e</span><span class="p">.</span><span class="nx">type</span><span class="o">+</span><span class="s2">&quot; &lt;/span&gt;&quot;</span><span class="p">);</span>
+        <span class="nx">lastevecount</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">lastevecount</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#evlist &gt;span&quot;</span><span class="p">).</span><span class="nx">last</span><span class="p">().</span><span class="nx">replaceWith</span><span class="p">(</span><span class="s2">&quot;&lt;span&gt;&quot;</span><span class="o">+</span><span class="nx">e</span><span class="p">.</span><span class="nx">type</span><span class="o">+</span><span class="nx">lastevecount</span><span class="o">+</span><span class="s2">&quot; &lt;/span&gt;&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nx">lastevename</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">type</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">lastevename</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">lastevecount</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</pre></div>
+
+    <p class="author">&mdash; Tomi Mickelsson</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'tomicloud'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <div id="footer">
+
+
+
+    <p>
+    <a class="icon" href="http://twitter.com/tomimickelsson"><span id="icotwitter">&nbsp;</span> twitter</a> |
+    <a class="icon" href="mailto:tomi.mickelsson@iki.fi"><span id="icoenve">&nbsp;</span> tomi.mickelsson@iki.fi</a>
+
+    </p>
+
+    <p>&copy; 2015 Tomi Mickelsson</p>
+
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+}
+
+    
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    
+    <script src="/static/main.js"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        MAIN.main();
+    });
+</script>
+
+
+
+
+
+
+
+
+
+</html>
+

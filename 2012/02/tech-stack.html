@@ -1,0 +1,628 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tech stack of my blog - Tomi's Blog</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+    <meta name="description" content="Home of Tomi Mickelsson and blog about tech"/>
+
+
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes" name="viewport" />
+
+
+    <link rel="shortcut icon" href="/static/favicon.ico" />
+
+    <link rel="apple-touch-icon" type="image/png" href="/static/applehome-tomi.png" />
+
+
+    <link rel="stylesheet" href="/static/main.css" type="text/css" />
+    <link rel="stylesheet" href="/static/pastie.css" type="text/css" />
+
+    <link rel="stylesheet" href="/static/mobile.css" type="text/css" />
+
+    <link rel="stylesheet" href="/static/full.css" type="text/css" />
+
+
+
+<!--[if lte IE 8]>
+    <link rel="stylesheet" type="text/css" href="/static/ie.css"/>
+<![endif]-->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30210642-1']);
+  _gaq.push(['_setDomainName', 'tomicloud.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+    </head>
+    <body>
+
+    <div id="header">
+        
+
+
+        <a id="logo" title="Home" href="/">&nbsp;</a>
+        <p>Tomi's blog about tech</p>
+
+
+        <div class="nav">
+            <a href="/" class="icon " >
+                <span id="icohome">&nbsp;</span>Blog</a>
+            <a href="/work" class="icon ">
+                <span id="icowork">&nbsp;</span>Work</a>
+            <a href="/about" class="icon ">
+                <span id="icoabout">&nbsp;</span>About</a>
+        </div>
+    </div>
+
+    <div id="sidebar">
+        <div>
+
+            <p class="mypic">
+
+
+            <img src="/static/tomimickelsson.png" title="Tomi Mickelsson" />
+            </p>
+
+            <p class="colorize">
+            Tomi is a software engineer working as a freelance consultant in
+            <span>HTML5</span> and <span>mobile</span> projects.
+
+
+
+
+
+            </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><a class="icon" href="http://twitter.com/tomimickelsson">
+    <span id="icotwitter">&nbsp;</span> twitter</a></p>
+<p><a class="icon" href="mailto:tomi.mickelsson@iki.fi">
+    <span id="icoenve">&nbsp;</span> tomi.mickelsson@iki.fi</a></p>
+
+
+
+
+
+            <h3>Blog Posts</h3>
+            
+            <p class="plink"><a class=""
+         href="/2014/01/responsive-gallery" >Responsive HTML5 image gallery tutorial</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2013/11/mapcolorizer" >Mapcolorizer.js: Choropleth maps with Leaflet</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2013/01/js-jquery-boilerplates" >My favorite Javascript + jQuery boilerplates</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/11/screenshot-fetcher" >Android &amp; iOS screenshot fetcher</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/07/viewsrc-chrome-ext" >Quick source viewer - Chrome extension</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/04/save-css-chrome-ext" >Save CSS - Chrome extension makes you fly</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/03/multi-touch-demo" >Multi-touch events playground</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/02/django-sqlite" >Django, SQLite and writes</a></p>
+            
+            <p class="plink"><a class="sel"
+        >Tech stack of my blog</a></p>
+            
+            <p class="plink"><a class=""
+         href="/2012/02/hello-world" >Hello World!</a></p>
+            
+
+
+
+
+
+        </div>
+
+        
+
+
+       
+
+    </div>
+
+    <div id="page">
+        
+
+
+
+
+
+
+<div class="post">
+    <h1>Tech stack of my blog</h1>
+
+    
+
+    <div class="date">Feb 14, 2012
+    </div>
+
+    
+
+    <p><img src="/static/techlogos.png" class="title" /></p>
+<p>This is a post about the technology stack of tomicloud.com blog.</p>
+<p>Being a software engineer familiar with a number of frameworks and tools, I
+happily developed this blog myself, what else! Having a total control of
+the stack allows me to play and experiment with the system in unseen ways.
+This site will most likely function more as a technology playground than a static
+blog.</p>
+<h2>Overview</h2>
+<p>Here are the most important building blocks of my blog:</p>
+<ul>
+<li>
+<p><a href="http://python.org">Python</a> language. I am a long-time Pythonista since 1999.  Python just <a href="http://www.python.org/dev/peps/pep-0020/">fits my brain</a> and makes me ultra productive.</p>
+</li>
+<li>
+<p><a href="http://www.djangoproject.com/">Django</a> is a high-level full-stack framework
+  that has become the web framework of choice in the Python land. I've used
+  other frameworks too but the benefits of Django ecosystem cannot be ignored.
+  (Frameworks like <a href="http://www.cherrypy.org/">CherryPy</a>, <a href="http://www.bottlepy.org/">Bottle</a> and a custom WSGI
+   glue for <a href="http://www.myplango.com/">Plango</a>.)</p>
+</li>
+<li>
+<p><a href="http://wiki.nginx.org/Main">nginx</a> is a high-performance asynchronous HTTP
+  server that can tackle the <a href="http://www.kegel.com/c10k.html">C10K problem</a>.
+  nginx now powers 12% of the world sites and has become <a href="http://www.zdnet.com/blog/open-source/nginx-takes-2nd-place-in-web-servers-from-microsoft-iis/10101">the 2nd most popular
+  HTTP server</a>
+  after Apache.</p>
+</li>
+<li>
+<p><a href="http://projects.unbit.it/uwsgi/">uWSGI</a> is a fast Python application
+  container with robust deployment features. Still a relatively unknown gem.</p>
+</li>
+<li>
+<p><a href="http://www.sqlite.org">SQLite</a> is a tiny embedded database.  It's very easy
+  to use and sufficient for now, since my site won't get millions of page hits
+  anytime soon, and essentially the blog is currently read-only without
+  comments. Once the need arises, I'll switch to
+  <a href="http://www.postgresql.org">PostgreSQL</a> or to my favorite NoSQL solution,
+  <a href="http://www.mongodb.org/">MongoDB</a>.</p>
+</li>
+<li>
+<p><a href="http://memcached.org/">memcached</a> is the world-famous distributed in-memory
+  key-value caching system. Used for session storage.</p>
+</li>
+<li>
+<p><a href="http://upstart.ubuntu.com/">Upstart</a> is the next generation init daemon
+  for managing services and tasks on Unix. Default on Ubuntu since version
+  9.10.</p>
+</li>
+<li>
+<p><a href="http://www.ubuntu.com/">Ubuntu</a> is the Linux distribution at the bottom of
+  my stack, hosted by <a href="http://www.linode.com">Linode</a>. Linode has provided
+  the best bang for the buck for my small needs. 
+  Linode data center is located in London.</p>
+</li>
+</ul>
+<p>No need to mention: all of these components are open-source.</p>
+<p>I won't go into details about compiling and installing these. Instead, I'll
+explain some of the high level configurations and hilights relevant to my
+blog.</p>
+<h2>Upstart</h2>
+<p><a href="http://upstart.ubuntu.com/">Upstart</a> controls services via configuration
+script files in the <code>/etc/init/</code> directory.  Here's the simple script for my
+Django blog:</p>
+<div class="codehilite"><pre># /etc/init/tomi-django.conf:
+start on startup
+stop on shutdown
+
+chdir /home/tomi/django-workdir
+exec /bin/sh productionrun.sh
+</pre></div>
+
+
+<p>Two points here: the working directory of the daemon is set to my Django site
+root directory <code>/home/tomi/django-workdir/</code>, and a script called
+<code>productionrun.sh</code> is executed from the directory.</p>
+<p>I start and stop the service from the command line with <code>sudo start tomi-django</code> and <code>sudo stop tomi-django</code>.</p>
+<h2>uWSGI</h2>
+<p><a href="http://projects.unbit.it/uwsgi/">uWSGI</a> is an application container that
+provides great facilities for building fast, scalable, robust and self-healing
+Python servers. Basically uWSGI forks a number of slave processes and monitors
+their operation.</p>
+<p>Here's the script that is executed by Upstart:</p>
+<div class="codehilite"><pre><span class="c"># /home/tomi/django-workdir/productionrun.sh:</span>
+<span class="c">#!/bin/sh</span>
+<span class="nb">exec</span> /usr/local/bin/uwsgi <span class="se">\</span>
+    -M <span class="se">\</span>
+    -p 3 <span class="se">\</span>
+    -t 5 <span class="se">\</span>
+    -Q /tmp/spooldjango <span class="se">\</span>
+    --socket 127.0.0.1:8030 <span class="se">\</span>
+    --max-requests 1000 <span class="se">\</span>
+    --module wsgi <span class="se">\</span>
+    --logto /home/tomi/django.log
+</pre></div>
+
+
+<p>Remarks here: <code>-M</code> activates the uWSGI master-slave operation. <code>-p 3</code>
+specifies 3 simultaneous slave processes.  <code>-t 5</code> specifies harakiri timeout: a
+request must complete in 5 seconds or the slave will get killed and a fresh
+slave is forked. <code>-Q</code> specifies a queue for background tasks, see below.</p>
+<p><code>--max-requests 1000</code> specifies that each slave process serves a maximum of
+1000 requests and is then killed and reforked. This is a simple mechanism to
+prevent memory or db connection leaks; no slave process can run forever. I
+don't see any leaks here but this good defensive step anyway.</p>
+<p><code>--module wsgi</code> specifies that a main script called <code>wsgi.py</code> is run by uWSGI.</p>
+<h2>nginx</h2>
+<p>nginx is the gateway HTTP server that talks to the world. It forwards browser
+requests to uWSGI daemon via the efficient <code>uwsgi binary protocol</code> that is
+built-in to nginx.</p>
+<p>Here's my nginx configuration, appended to the end of standard nginx.conf:</p>
+<div class="codehilite"><pre><span class="c1"># /usr/local/nginx/conf/nginx.conf:</span>
+<span class="k">...</span>
+<span class="s">upstream</span> <span class="s">django</span> <span class="p">{</span>
+       <span class="kn">ip_hash</span><span class="p">;</span>
+       <span class="kn">server</span> <span class="n">127.0.0.1</span><span class="p">:</span><span class="mi">8030</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">server</span> <span class="p">{</span>
+       <span class="kn">listen</span>       <span class="mi">80</span><span class="p">;</span>
+       <span class="kn">server_name</span>  <span class="s">tomicloud.com</span> <span class="s">www.tomicloud.com</span><span class="p">;</span>
+
+       <span class="kn">location</span> <span class="s">/static/</span> <span class="p">{</span>
+           <span class="kn">root</span>   <span class="s">/home/tomi/django-workdir/</span><span class="p">;</span>
+           <span class="kn">expires</span> <span class="s">1d</span><span class="p">;</span>
+       <span class="p">}</span>
+       <span class="kn">location</span> <span class="s">/favicon.ico</span> <span class="p">{</span>
+           <span class="kn">root</span>   <span class="s">/home/tomi/django-workdir/static/</span><span class="p">;</span>
+       <span class="p">}</span>
+       <span class="kn">location</span> <span class="s">/robots.txt</span> <span class="p">{</span>
+           <span class="kn">root</span>   <span class="s">/home/tomi/django-workdir/static/</span><span class="p">;</span>
+       <span class="p">}</span>
+       <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+            <span class="kn">uwsgi_pass</span>  <span class="s">django</span><span class="p">;</span>
+            <span class="kn">include</span>     <span class="s">uwsgi_params</span><span class="p">;</span>
+       <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>nginx serves static files directly from the file system and forwards other
+requests to a single uWSGI daemon running in the port 8030. (And the uWSGI
+daemon runs 3 workers.)</p>
+<p>nginx can also load balance uWSGI daemons across machines, providing
+scalability.</p>
+<p>nginx is also started via Upstart script.</p>
+<h2>Build script</h2>
+<p>The site is built and deployed the old school way: with a
+single <code>Makefile</code> and a command: <code>make django</code>:</p>
+<div class="codehilite"><pre><span class="nv">PRODHOST</span><span class="o">=</span>tomicloud.com
+
+TMPDIR :<span class="o">=</span> <span class="k">$(</span>shell mktemp -d /tmp/django.XXX<span class="k">)</span>
+<span class="nv">SRCDIR</span> <span class="o">=</span> <span class="k">$(</span>TMPDIR<span class="k">)</span>
+<span class="nv">JSDIR</span> <span class="o">=</span> <span class="k">$(</span>TMPDIR<span class="k">)</span>/static/
+<span class="nv">DESTDIRSTOCK</span> <span class="o">=</span> django-workdir
+<span class="nv">COMPRESSOR</span> <span class="o">=</span> java -jar ../../minimize/yuicompressor-2.4.2.jar
+
+all: xxx
+
+prepare:
+    @echo <span class="s2">&quot;Copying sources locally &quot;</span> . <span class="k">$(</span>TMPDIR<span class="k">)</span>
+    @cp -R * <span class="k">$(</span>TMPDIR<span class="k">)</span>/
+    @mkdir <span class="k">$(</span>TMPDIR<span class="k">)</span>/static/admin
+    @cp -R ~/Downloads/Django-1.3.1/django/contrib/admin/media/ <span class="k">$(</span>TMPDIR<span class="k">)</span>/static/admin/
+
+django: minify
+    @echo <span class="s2">&quot;Uploading sources...&quot;</span>
+    @-ssh <span class="k">$(</span>PRODHOST<span class="k">)</span> sudo stop tomi-django
+    @rsync -a -v <span class="k">$(</span>SRCDIR<span class="k">)</span>/ <span class="k">$(</span>PRODHOST<span class="k">)</span>:<span class="k">$(</span>DESTDIRSTOCK<span class="k">)</span>
+    @-ssh <span class="k">$(</span>PRODHOST<span class="k">)</span> sudo start tomi-django
+    @echo <span class="s2">&quot;Done! Deleting &quot;</span> . <span class="k">$(</span>TMPDIR<span class="k">)</span>
+    @rm -fr <span class="k">$(</span>TMPDIR<span class="k">)</span>/
+
+minify: prepare
+    @echo <span class="s2">&quot;Minifying .js and .css files locally&quot;</span>
+
+<span class="c">    # js full</span>
+    @cat <span class="k">$(</span>JSDIR<span class="k">)</span>/main.js &gt;<span class="k">$(</span>JSDIR<span class="k">)</span>/temp.js
+    @<span class="k">$(</span>COMPRESSOR<span class="k">)</span> <span class="k">$(</span>JSDIR<span class="k">)</span>/temp.js -o <span class="k">$(</span>JSDIR<span class="k">)</span>/temp2.js  --line-break 80 --preserve-semi --charset utf-8
+    @echo <span class="s2">&quot;/* Hello there, you hacker! */&quot;</span> &gt;<span class="k">$(</span>JSDIR<span class="k">)</span>/full.js
+    @cat <span class="k">$(</span>JSDIR<span class="k">)</span>/temp2.js &gt;&gt;<span class="k">$(</span>JSDIR<span class="k">)</span>/full.js
+
+<span class="c">    # js mobile</span>
+    @cat <span class="k">$(</span>JSDIR<span class="k">)</span>/zepto.js &gt;<span class="k">$(</span>JSDIR<span class="k">)</span>/temp.js
+    @cat <span class="k">$(</span>JSDIR<span class="k">)</span>/fx_methods.js &gt;&gt;<span class="k">$(</span>JSDIR<span class="k">)</span>/temp.js
+    @cat <span class="k">$(</span>JSDIR<span class="k">)</span>/main.js &gt;&gt;<span class="k">$(</span>JSDIR<span class="k">)</span>/temp.js
+    @<span class="k">$(</span>COMPRESSOR<span class="k">)</span> <span class="k">$(</span>JSDIR<span class="k">)</span>/temp.js -o <span class="k">$(</span>JSDIR<span class="k">)</span>/mob.js  --line-break 80 --preserve-semi --charset utf-8
+
+<span class="c">    # css full</span>
+    @cat <span class="k">$(</span>JSDIR<span class="k">)</span>/main.css &gt;<span class="k">$(</span>JSDIR<span class="k">)</span>/temp.css
+    @cat <span class="k">$(</span>JSDIR<span class="k">)</span>/full.css &gt;&gt;<span class="k">$(</span>JSDIR<span class="k">)</span>/temp.css
+    @cat <span class="k">$(</span>JSDIR<span class="k">)</span>/pastie.css &gt;&gt;<span class="k">$(</span>JSDIR<span class="k">)</span>/temp.css
+    @<span class="k">$(</span>COMPRESSOR<span class="k">)</span> <span class="k">$(</span>JSDIR<span class="k">)</span>/temp.css -o <span class="k">$(</span>JSDIR<span class="k">)</span>/full.css  --line-break 80 --charset utf-8
+
+<span class="c">    # css mobile</span>
+    @cat <span class="k">$(</span>JSDIR<span class="k">)</span>/main.css &gt;<span class="k">$(</span>JSDIR<span class="k">)</span>/temp.css
+    @cat <span class="k">$(</span>JSDIR<span class="k">)</span>/mobile.css &gt;&gt;<span class="k">$(</span>JSDIR<span class="k">)</span>/temp.css
+    @cat <span class="k">$(</span>JSDIR<span class="k">)</span>/pastie.css &gt;&gt;<span class="k">$(</span>JSDIR<span class="k">)</span>/temp.css
+    @<span class="k">$(</span>COMPRESSOR<span class="k">)</span> <span class="k">$(</span>JSDIR<span class="k">)</span>/temp.css -o <span class="k">$(</span>JSDIR<span class="k">)</span>/mob.css  --line-break 80 --charset utf-8
+
+<span class="c">    # rm temp+orig files</span>
+    @rm  <span class="k">$(</span>JSDIR<span class="k">)</span>/main.css <span class="k">$(</span>JSDIR<span class="k">)</span>/mobile.css <span class="k">$(</span>JSDIR<span class="k">)</span>/temp.css <span class="k">$(</span>JSDIR<span class="k">)</span>/temp*.js
+</pre></div>
+
+
+<p>The makefile first copies the sources into a local temporary directory, then
+merges and minifies CSS and JS files (using the <a href="http://developer.yahoo.com/yui/compressor/">YUI compressor</a>), and finally <code>rsyncs</code>
+the files over SSH into the remote server, stopping and restarting the uWSGI
+daemon in between. By using <code>SSH public key authentication</code> and SSH agent, the
+script never prompts for passwords.</p>
+<p>Note that Django admin static files need to be copied to a directory where
+nginx serves them since Django in production mode doesn't serve any static
+files itself.</p>
+<p>I've also used tools like
+<a href="http://django-pipeline.readthedocs.org/en/latest/index.html">django-pipeline</a>
+for build tasks but prefer the Makefile approach for its simplicity and
+extendability and because I'm not always working with Django.</p>
+<h2>Background services</h2>
+<p>It is good practise to offload as much server work as possible to background
+workers. Time consuming tasks should not be executed within the request if
+possible since requests should complete instantly and there is always limited
+amount of request processors available in a server.</p>
+<p>uWSGI provides good facilities for running <a href="http://projects.unbit.it/uwsgi/wiki/Decorators">background tasks</a>. Below is a script from my site
+that demonstrates how one can schedule tasks to be run in the background.</p>
+<div class="codehilite"><pre><span class="c"># task.py:</span>
+<span class="kn">from</span> <span class="nn">uwsgidecorators</span> <span class="kn">import</span> <span class="n">spool</span><span class="p">,</span> <span class="n">timer</span><span class="p">,</span> <span class="n">cron</span>
+<span class="kn">from</span> <span class="nn">django.core.mail</span> <span class="kn">import</span> <span class="n">send_mail</span>
+
+<span class="c"># run every hour</span>
+<span class="nd">@timer</span><span class="p">(</span><span class="mi">3600</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">timerfunc</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">&quot;hour passed&quot;</span>
+
+<span class="c"># read tweets every night</span>
+<span class="nd">@cron</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_tweets</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;it&#39;s 4:10 in the morning: read tweets&quot;</span><span class="p">)</span>
+    <span class="n">tweet</span><span class="o">.</span><span class="n">fetch_tweets</span><span class="p">()</span>
+
+<span class="c"># send an email</span>
+<span class="nd">@spool</span>
+<span class="k">def</span> <span class="nf">sendemail</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">subject</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&quot;subject&quot;</span><span class="p">]</span>
+    <span class="n">body</span>    <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&quot;body&quot;</span><span class="p">]</span>
+    <span class="n">to</span>      <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s">&quot;to&quot;</span><span class="p">]</span>
+    <span class="n">fromm</span>   <span class="o">=</span> <span class="s">&quot;admin@tomicloud.com&quot;</span>
+    <span class="n">send_mail</span><span class="p">(</span><span class="n">subject</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">fromm</span><span class="p">,</span> <span class="p">[</span><span class="n">to</span><span class="p">],</span> <span class="n">fail_silently</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="c"># how to call sendemail above:</span>
+<span class="c"># task.sendemail.spool({&#39;subject&#39;:&#39;Hello&#39;, &#39;body&#39;:&#39;Message to you.&#39;,</span>
+<span class="c">#   &#39;to&#39;:&#39;tomi@example.org&#39;})</span>
+</pre></div>
+
+
+<p>uWSGI solution is simple and works well. For more advanced setups,
+<a href="http://projects.unbit.it/uwsgi/wiki/Mules">uWSGI mules</a> can be considered. Another popular solution in the Python land is <a href="http://celeryproject.org/">Celery</a>.</p>
+<h2>Mobile</h2>
+<p>In todays IT environment, mobile UI should be considered as a first class citizen. A site should have basic support for a mobile version.</p>
+<p>My blog has two versions of the UI, the desktop/full site and the mobile site.
+The site automatically tries to select the appropriate version of the UI based
+on the browser agent string. Here's my simple home-cooked mobile detection
+script:</p>
+<div class="codehilite"><pre><span class="c"># is mobile (forced or real one)?</span>
+<span class="k">def</span> <span class="nf">is_mobile</span><span class="p">(</span><span class="n">req</span><span class="p">):</span>
+    <span class="n">ismob</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">forced</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">COOKIES</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;m&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">forced</span> <span class="o">==</span> <span class="s">&quot;m&quot;</span><span class="p">:</span>
+        <span class="n">ismob</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="k">elif</span> <span class="n">forced</span> <span class="o">!=</span> <span class="s">&quot;f&quot;</span> <span class="ow">and</span> <span class="n">is_real_mobile_browser</span><span class="p">(</span><span class="n">req</span><span class="p">):</span>
+        <span class="n">ismob</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="k">return</span> <span class="n">ismob</span>
+
+<span class="c"># is mobile (agent string)</span>
+<span class="k">def</span> <span class="nf">is_real_mobile_browser</span><span class="p">(</span><span class="n">req</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">get_agent</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">moblist</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;android&quot;</span><span class="p">,</span> <span class="s">&quot;iphone&quot;</span><span class="p">,</span> <span class="s">&quot;ipod&quot;</span><span class="p">,</span> <span class="s">&quot;symbian&quot;</span><span class="p">,</span> <span class="s">&quot;nokia&quot;</span><span class="p">,</span>
+            <span class="s">&quot;blackberry&quot;</span><span class="p">,</span> <span class="s">&quot;palmsource&quot;</span><span class="p">,</span> <span class="s">&quot;sonyericsson&quot;</span><span class="p">,</span> <span class="s">&quot;midp-&quot;</span><span class="p">,</span>
+            <span class="s">&quot;opera mini&quot;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">moblist</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">return</span> <span class="bp">False</span>
+
+<span class="c"># return agent string</span>
+<span class="k">def</span> <span class="nf">get_agent</span><span class="p">(</span><span class="n">req</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">req</span><span class="o">.</span><span class="n">META</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;HTTP_USER_AGENT&quot;</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>This simple script only detects the most common mobile browsers. It's
+impossible to make it 100% water proof since the number of different devices
+grows by day. So it is possible that the detection fails.  Hence, it is
+important that <code>the user can always switch the UI at will.</code> I have a link in
+the footer to switch to another UI version.  The selected UI version is stored
+in a cookie which is remembered even if the browser is closed.</p>
+<p>The mobile site differs from the desktop site in all three levels: HTML, CSS and Javascript are all optimized for mobile use. The HTML has small changes to topmost layout (header, sidebar, footer), CSS has a few changes and the Javascript framework is a lighter alternative. All of these could not be achieved with <code>CSS media queries</code> alone. However, CSS media queries could be used in addition to the basic mobile/desktop separation. I'll get back to this in the future when the iPad3 arrives...</p>
+<p>In my blog I have three CSS files internally but only a single CSS file is
+sent to a client in production mode to minimize http requests. A base CSS is merged with either a desktop CSS or mobile CSS by the deployment script.</p>
+<p>Most of the back-end and front-end code of the UI versions is shared. A mobile
+UI is not written from scratch, saving development time.  Here is a piece of
+code from my blog that shows how I select the Javascript files in my
+base.html. <code>ISMOB</code> is a variable that is always available in templates and is
+True for a mobile version.</p>
+<div class="codehilite"><pre><span class="cp">{%</span> <span class="k">if</span> <span class="nv">ISPRODUCTION</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">ISMOB</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;script src=&quot;/static/mob.js&quot;&gt;&lt;/script&gt;</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js&quot;&gt;&lt;/script&gt;</span>
+<span class="x">    &lt;script src=&quot;/static/full.js&quot;&gt;&lt;/script&gt;</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">ISMOB</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;script src=&quot;/static/zepto.min.js&quot;&gt;&lt;/script&gt;</span>
+<span class="x">    &lt;script src=&quot;/static/fx_methods.js&quot;&gt;&lt;/script&gt;</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;script src=&quot;/static/jquery-1.7.1.min.js&quot;&gt;&lt;/script&gt;</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;script src=&quot;/static/main.js&quot;&gt;&lt;/script&gt;</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+
+
+<p><a href="http://jquery.com/">jQuery</a> is a great and wildly popular Javascript
+framework. It is the base framework for all my projects. However, it is also
+quite large in size, and has extra baggage for mobile use.
+<a href="http://zeptojs.com">Zepto.js</a> is a great lighter alternative for mobile. It
+provides the same API for a subset of jQuery functionality but with much less
+size. 94K vs 23K (-76%) in my case. Zeptojs has good plugin system for extra
+functionality.</p>
+<h2>Other</h2>
+<p>All text in the blog is written with <a href="http://en.wikipedia.org/wiki/Markdown">Markdown</a>.
+All code examples are colorized by the amazing
+<a href="http://pygments.org">Pygments</a> Python library. The HTML generated by Markdown
+is cached in the database to save CPU; no reason to generate static HTML on every request.</p>
+<p>My tweets are fetched every night by using <a href="http://tweepy.github.com">Tweepy</a>
+Python library.</p>
+<p>I experimented in using a custom font <code>Ubuntu</code> from the
+wonderful <a href="http://www.google.com/webfonts">Google fonts</a> repository, but didn't take it into use finally since it didn't quite look good on all platforms. It was disabled in the mobile version anyway to save bandwidth.</p>
+<p>There is some CSS3 in the front-end. For example, the header uses <code>CSS3
+transforms</code> to enlarge the logo on hover, and <code>CSS3 transitions</code> are used to
+scroll the icons in the navigation tabs. The image of me is flipped with a 3D transform and a transition (webkit browsers only!) CSS3 transitions are great for small and subtle UI candy.</p>
+<p><code>Box-shadows</code> surround the top-level divs. Box-shadows are increasingly popular
+in contemporary web-design and they do look nice. No reason to do
+Photoshopping for shadows anymore.</p>
+<p>That's the overview of the back and front of my blog, thanks.</p>
+
+    <p class="author">&mdash; Tomi Mickelsson</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'tomicloud'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <div id="footer">
+
+
+
+    <p>
+    <a class="icon" href="http://twitter.com/tomimickelsson"><span id="icotwitter">&nbsp;</span> twitter</a> |
+    <a class="icon" href="mailto:tomi.mickelsson@iki.fi"><span id="icoenve">&nbsp;</span> tomi.mickelsson@iki.fi</a>
+
+    </p>
+
+    <p>&copy; 2015 Tomi Mickelsson</p>
+
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+}
+
+    
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    
+    <script src="/static/main.js"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        MAIN.main();
+    });
+</script>
+
+
+
+
+
+
+
+
+
+</html>
+
